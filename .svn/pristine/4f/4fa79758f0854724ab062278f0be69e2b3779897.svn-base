@@ -1,0 +1,10 @@
+@import "replacePhone.wxss";
+.gh_phone{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gh_phone text{
+  color: #FE8737;
+  font-size: 30rpx;
+}

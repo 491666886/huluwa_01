@@ -1,0 +1,36 @@
+<view>
+  <view class="hd">
+    <view class="search">
+      <icon type='search'></icon> 
+      <input placeholder='请输入关键字搜索' confirm-type='search'></input>
+    </view>
+  </view>
+  <view class="classify">
+    <view wx:for='{{navbar}}' wx:key='id' data-current='{{item.id}}' bindtap="swichNav">
+      <text class="{{currentTab==item.id ? 'active' : ''}}">{{item.sot}}</text>
+    </view>
+  </view>
+  <view class="two_classify">
+    <text bindtap='twoCid' wx:for='{{twoList}}' wx:key="id" data-cotnum='{{item.id}}' class="{{twoTab==item.id ? 'active' : ''}}">着重成长</text>
+  </view>
+  <view class="list_cot">
+    <block wx:for='{{listCot}}'>
+      <view class="item">
+        <view class="item_lt">
+          <image src="/images/cfa.jpg"></image>
+          <text>10:59</text>
+        </view>
+        <view class="item_video_info">
+          <view class="video_name">育儿专家的十条建议-关于幼儿教 育的方方面面</view>
+          <view class="video_in">
+            <view class="video_num">
+              <image src="/images/play.png"></image>
+              <text>123</text>
+            </view>
+            <text class="video_time">2079-12-23</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

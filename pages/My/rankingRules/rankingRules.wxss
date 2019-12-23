@@ -1,0 +1,28 @@
+.list{
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #111111;
+  line-height: 50rpx;
+  margin-bottom: 70rpx;
+  margin-top: 50rpx;
+}
+.footer{
+  display: flex;
+  font-size: 34rpx;
+  justify-content: center;
+}
+.footer text{
+  margin: 0 15rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+}
+.footer text:nth-child(1){
+  background-color: #FBFAFC;
+  border: 1px solid #D6D5D6;
+}
+.footer text:nth-child(2){
+  background-color: #FF911D;
+  color: #fff;
+}

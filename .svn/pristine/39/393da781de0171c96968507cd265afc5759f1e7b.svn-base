@@ -1,0 +1,11 @@
+<view>
+  <view class="video">
+    <video src="http://172.38.4.12:9000/jiaqiang/test2.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191218T014100Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Credential=0OH2SXDDBZUBSFI8F5KO%2F20191218%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b526648a049507f7b2ec317cca84f85b3396c707c0de8bada74eef8de742d7a"></video>
+  </view>
+  <view class="detail">
+    <text class="classname">{{video.classname}}
+     
+    </text>
+     <image src="/images/icon11.png"></image>
+  </view>
+</view>

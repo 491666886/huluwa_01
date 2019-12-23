@@ -1,0 +1,36 @@
+<view>
+  <view class="list">
+    <view>
+      <text>学生姓名</text>
+      <input placeholder="姓名" bindinput='name'></input>
+    </view>
+    <view>
+      <text>学生性别</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range-key='name' range="{{objectArray}}">
+        <view class="picker {{sex == '请选择'?'':'active'}}">
+        <!-- {{currentTab==1?'active':''}} -->
+          {{sex}}
+        </view>
+      </picker>
+    </view>
+    <view>
+      <text>学生学校</text>
+      <input placeholder="请输入学校" bindinput="school"></input>
+    </view>
+    <view>
+      <text>学生年级</text>
+      <input placeholder="请输入年级" bindinput="Njgrade"></input>
+    </view>
+    <view>
+      <text>学生班级</text>
+      <input placeholder="请输入班级" bindinput="Bjgrade"></input>
+    </view>
+    <view>
+      <text>身份证号</text>
+      <input placeholder="请输入身份证号" bindinput="card"></input>
+    </view>
+  </view>
+  <view class="next" bindtap="next">
+    确定
+  </view>
+</view>

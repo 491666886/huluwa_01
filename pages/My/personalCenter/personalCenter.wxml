@@ -1,0 +1,58 @@
+<view>
+  <view class="head">
+    <image src="/images/cfa.jpg" class="bgi"></image>
+    <view class="hd_cot">
+      <image src="/images/cs.jpg" class="hd_lt_img"></image>
+      <view class="hd_rt">
+        <view class="hd_rt_t">
+          <text class="user_name">小葫芦撒地方</text>
+          <view class="invite">+ 要请家人</view>
+        </view>
+        <view class="hd_rt_b">
+          <view class="user_money_info">
+            <image src="/images/money.png"></image>123
+            <image src="/images/integral.png"></image>333
+          </view>
+          <view class="user_child">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'name'}}">
+              <text>{{objectArray[index].name}}</text>
+              <image src="/images/icon_x.png"></image>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_1.png"></image>
+      <view>我的收藏</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_2.png"></image>
+      <view>我的订单</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_3.png"></image>
+      <view>我的钱包</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_4.png"></image>
+      <view>消息</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_5.png"></image>
+      <view>问题反馈</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+    <view class="item">
+      <image class="item_icon" src="/images/my_icon_6.png"></image>
+      <view>退出登录</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </view>
+  </view>
+</view>

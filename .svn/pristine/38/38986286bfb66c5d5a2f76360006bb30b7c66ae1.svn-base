@@ -1,0 +1,35 @@
+<view>
+  <view class="head">
+    <view class="head_title">葫芦成长点滴</view>
+    <view class="head_list">
+      <block wx:for='{{list}}' wx:key='id'>
+        <view class="hd_item">
+          <image src="{{item.src}}"></image>
+          <text>{{item.info}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="dynamic">
+    <view class="head_title">动态更新</view>
+    <view class="dynamic_cot">
+      <view class="dynamic_item" wx:for='{{dynamicList}}'>
+        <view class="dynamic_item_lt">
+          <image src="/images/cfa.jpg"></image>
+          <text>100:07</text>
+        </view>
+        <view class="dynamic_item_rt">
+          <text class="video_name">范德萨收到范德萨收到范德萨收到范德萨收到</text>
+          <view>
+            <view class="broadcast_sort">班级活动</view>
+            <view class="broadcast_info">
+              <text class="time">2013-12-20</text>
+              <image src="/images/cfa.jpg"></image>
+              <text class="broadcast_num">456</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+video {
+  width: 750rpx;
+  height: 490rpx;
+}
+
+.head {
+  border-bottom: 16rpx solid #f7f8fa;
+}
+
+.title {
+  padding: 25rpx 20rpx;
+}
+
+.classname {
+  font-size: 36rpx;
+  display: inline-block;
+  width: 200rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  color: #222;
+}
+
+.watchnum {
+  float: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.icon {
+  width: 22rpx;
+  height: 30rpx;
+  float: right;
+  margin-right: 10rpx;
+}
+
+.banner {
+  color: #666;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  width: 300rpx;
+  display: inline-block;
+  padding-bottom: 35rpx;
+}
+
+.dynamic_item{
+  height: 200rpx;
+  display: flex;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+.dynamic_item_lt{
+  position: relative;
+  margin-right: 20rpx;
+}
+.dynamic_item_lt image{
+  height: 100%;
+  width: 300rpx;
+  border-radius: 6rpx;
+}
+.dynamic_item_lt text{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  padding: 4rpx 8rpx;
+  background-color: #14141467;
+  border-radius: 18rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.dynamic_item_rt{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.video_name{
+  font-size: 28rpx;
+  font-weight:500;
+  color: #222222;
+}
+.broadcast_sort{
+  font-size: 24rpx;
+  color: #999999;
+}
+.broadcast_info{
+  font-size: 24rpx;
+  color: #999999;
+}
+.time{
+  margin-right: 30rpx;
+}
+.broadcast_info image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.dynamic_cot{
+  padding:20rpx;
+}

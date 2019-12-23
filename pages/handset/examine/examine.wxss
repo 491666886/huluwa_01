@@ -1,0 +1,32 @@
+
+.box{
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+image{
+  width: 205rpx;
+  height: 205rpx;
+  padding: 100px 0 60rpx;
+}
+text{
+  font-size: 40rpx;
+  padding-bottom: 40rpx;
+}
+.shsj{
+  font-size: 28rpx;
+  color: #888888;
+  margin-bottom: 60rpx;
+}
+.toIndex{
+  width: 100%;
+  height:88rpx;
+  line-height: 88rpx;
+  border:1px solid #D6D5D6;
+  border-radius:10px;
+  background-color: #FBFAFC;
+  font-weight:500;
+  font-size: 36rpx;
+  text-align: center;
+}

@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/nav/onAccess/onAccess",
+    "pages/handset/wsInfo/wsInfo",
+    "pages/handset/reviseName/reviseName",
+    "pages/handset/replacePhone/replacePhoneNet",
+    "pages/handset/replacePhone/replacePhone",
+    "pages/handset/examine/examine",
+    "pages/handset/verify/verify",
+    "pages/index/index",
+    "pages/watering/wateringIndex/wateringIndex",
+    "pages/My/personalCenter/personalCenter",
+    "pages/gourd/gourdIndex/gourdIndex",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#FF911D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "园丁",
+        "iconPath": "images/icon_bottom01.png",
+        "selectedIconPath": "images/icon_bottom01_y.png"
+      },
+      {
+        "pagePath": "pages/gourd/gourdIndex/gourdIndex",
+        "text": "葫芦",
+        "iconPath": "images/icon_bottom02.png",
+        "selectedIconPath": "images/icon_bottom02_y.png"
+      },
+      {
+        "pagePath": "pages/watering/wateringIndex/wateringIndex",
+        "text": "浇水",
+        "iconPath": "images/icon_bottom03.png",
+        "selectedIconPath": "images/icon_bottom03_y.png"
+      },
+      {
+        "pagePath": "pages/My/personalCenter/personalCenter",
+        "text": "我的",
+        "iconPath": "images/icon_bottom04.png",
+        "selectedIconPath": "images/icon_bottom04_y.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

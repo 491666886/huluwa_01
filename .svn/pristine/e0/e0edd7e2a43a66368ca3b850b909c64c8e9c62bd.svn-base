@@ -1,0 +1,102 @@
+
+.head{
+  height: 336rpx;
+  position: relative;
+  padding: 0 20rpx;
+}
+.bgi{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 336rpx;
+  z-index: -1;
+}
+.hd_lt_img{
+  width: 145rpx;
+  height: 145rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+.hd_cot{
+  display: flex;
+  padding-top: 82rpx;
+}
+.hd_rt{
+  flex: 1;
+  height: 145rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.hd_rt_t,.hd_rt_b{
+  display: flex;
+  justify-content: space-between;
+}
+.user_name{
+  font-size: 34rpx;
+  color: #fff;
+}
+.invite{
+  border: 1px dashed #fff;
+  border-radius: 5rpx;
+  font-size: 24rpx;
+  height: 40rpx;
+  padding: 0 14rpx;
+  line-height: 40rpx;
+  color: #fff;
+}
+.user_money_info{
+  padding: 0 10rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: rgba(247, 247, 247, 0.5);
+  color: #9E2121;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+}
+.user_money_info image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.user_child{
+  height: 40rpx;
+  font-size: 24rpx;
+  background: rgba(247, 247, 247, 0.5);
+  padding: 0 60rpx 0 10rpx;
+  border-radius: 5rpx;
+  color: #9E2121;
+}
+.user_child image{
+  width: 18rpx;
+  height: 10rpx;
+  /* margin-left: 20rpx; */
+  position: absolute;
+  right: -40rpx;
+  top: 16rpx;
+}
+.user_child picker{
+  display: flex;
+  align-items: center;
+  height: 40rpx;
+  position: relative;
+}
+.item{
+  height: 98rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #EEEEEE;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+.item_icon{
+    width: 35rpx;
+    height: 34rpx;
+    margin-right: 20rpx;
+}
+.icon_more{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: auto;
+}
