@@ -1,7 +1,0 @@
-<view>
-  <view class="gh_phone">
-    <input type='number' maxlength='11'  placeholder="请输入验证码"></input>
-    <text bindtap="timeCld">{{getmsg}}</text>
-  </view>
-  <view class="next" bindtap="next">确认</view>
-</view>

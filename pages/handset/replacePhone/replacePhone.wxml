@@ -1,6 +1,0 @@
-<view>
-  <view class="gh_phone">
-    <input type='number' maxlength='11' bindinput="blurPhone"  placeholder="请输入手机号"></input>
-  </view>
-  <view class="next" bindtap="next">下一步</view>
-</view>
