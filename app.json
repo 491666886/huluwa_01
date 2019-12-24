@@ -9,8 +9,6 @@
     "pages/nav/videodetail/videodetail",
     "pages/handset/wsInfo/wsInfo",
     "pages/handset/verify/verify",
-    "pages/My/collect/collect",
-    "pages/My/basicInfo/basicInfo",
     "pages/handset/reviseName/reviseName",
     "pages/My/personalCenter/personalCenter",
     "pages/My/ranking/ranking",
@@ -20,7 +18,7 @@
     "pages/My/integralInfo/integralInfo",
     "pages/handset/replacePhone/replacePhone",
     "pages/handset/replacePhone/replacePhoneNet",
-    "pages/handset/wsInfo/wsInfo",
+   
     "pages/handset/examine/examine",
     "pages/gourd/gourdIndex/gourdIndex",
     "pages/logs/logs"

@@ -1,11 +1,43 @@
 <view>
+<view class="head">
   <view class="video">
-    <video src="http://172.38.4.12:9000/jiaqiang/test2.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191218T014100Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Credential=0OH2SXDDBZUBSFI8F5KO%2F20191218%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b526648a049507f7b2ec317cca84f85b3396c707c0de8bada74eef8de742d7a"></video>
+    <video src="https://v-cdn.zjol.com.cn/280443.mp4"></video>
   </view>
   <view class="detail">
-    <text class="classname">{{video.classname}}
-     
-    </text>
-     <image src="/images/icon11.png"></image>
+    <view class="title">
+      <text class="classname">{{video.classname}} </text>
+      <text class="watchnum">{{video.watchnum}}人 </text>
+      <image class="icon" src="/images/icon11.png"></image>
+    </view>
+    <text class="banner">课程：{{video.curriculum}} </text>
+      <text class="banner">出勤人数：{{video.people}} </text>
+      <text class="banner">教师：{{video.teacher}} </text>
+      <text class="banner">课程时间：{{video.time}} </text>
+  </view>
+</view>
+
+  <view class="dynamic">
+   
+     <view class="dynamic_cot">
+      <block wx:for='{{dynamicList}}' wx:key='id'>
+        <view class="dynamic_item">
+          <view class="dynamic_item_lt">
+            <image src="{{item.image}}"></image>
+            <text>{{item.videoDuration}}</text>
+          </view>
+          <view class="dynamic_item_rt">
+            <text class="video_name">{{item.title}}</text>
+            <view>
+              <view class="broadcast_sort">{{item.category}}</view>
+              <view class="broadcast_info">
+                <text class="time">{{item.createTime}}</text>
+                <image src="/images/play.png"></image>
+                <text class="broadcast_num">{{item.count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
 </view>

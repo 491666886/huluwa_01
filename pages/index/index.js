@@ -20,7 +20,8 @@ Page({
       },
       {
         src: '/images/icon02.png',
-        info: '高光时刻'
+        info: '高光时刻',
+        url: "../nav/moment/moment"
       },
       {
         src: '/images/icon03.png',
