@@ -1,43 +1,78 @@
 
-var app = getApp();
+//获取应用实例
+const app = getApp()
+const util = require('../../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time:10,
+    time:60,
     getmsg: "发送验证码",
-    tineTo: true
+    tineTo: true,
+    phone:''
   },
   phoneIpt(e){
-    console.log(e.detail.value.replace(/\s+/g, ''))
-    
+    // console.log(e.detail.value.replace(/\s+/g, ''))
+    this.setData({
+      phone: e.detail.value.replace(/\s+/g, '')
+    })
   },
   timeCld:function() {
     let _this = this
     var timeNum = this.data.time
     var tineTo = this.data.tineTo
-    // if (tineTo){
-    //   _this.setData({
-    //     tineTo: false
-    //   })
-    //   var inter = setInterval(function () {
-    //     timeNum--
-    //     _this.setData({
-    //       getmsg: timeNum + 's重新发送'
-    //     })
-    //     if (timeNum == 0){
-    //       clearInterval(inter)
-    //       _this.setData({
-    //         getmsg: '发动验证码',
-    //         tineTo: true
-    //       })
-    //     }
-    //     console.log(timeNum)
-    //   }, 1000)
-    // }
-    console.log(timeNum)
+    let phone = this.data.phone
+    console.log(phone)
+    if (!(/^1[345678]\d{9}$/.test(phone))) {
+      if (phone.length <= 11) {
+        wx.showToast({
+          title: '手机号有误',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    } else {
+      console.log('验证成功')
+      wx.request({
+        url: app.globalData.src + '/gourdbaby/login/getCode.action', 
+        data: {
+          tel: phone
+        },
+        method:'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success(res) {
+          console.log(res.data)
+        }
+      })
+
+
+
+      if (tineTo){
+        _this.setData({
+          tineTo: false
+        })
+        var inter = setInterval(function () {
+          timeNum--
+          _this.setData({
+            getmsg: timeNum + 's重新发送'
+          })
+          if (timeNum == 0){
+            clearInterval(inter)
+            _this.setData({
+              getmsg: '发动验证码',
+              tineTo: true
+            })
+          }
+          // console.log(timeNum)
+        }, 1000)
+      }
+    }
+
+
   },
   /**
    * 生命周期函数--监听页面加载

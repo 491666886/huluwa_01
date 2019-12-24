@@ -78,7 +78,6 @@ Page({
       console.log(res.data.t)
       if (res.data.status == 200) {
         let time = res.data.t.map(item => {
-          console.log(item)
           return util.nowTime(item.videoDuration)
         })
         _this.setData({
@@ -90,9 +89,16 @@ Page({
     })
   },
   onLoad: function () {
+    console.log(wx.getStorageSync("openid"))
+    if (!wx.getStorageSync("openid")){
+       wx.reLaunch({
+         url: '/pages/login/login',
+       }) 
+    }
+
     this.gxList()
-    console.log(util.nowTime(100))
-    
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
