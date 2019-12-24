@@ -49,6 +49,7 @@ Page({
               wx.setStorageSync("session_key", res.data.resultData.session_key)
               wx.setStorageSync("openid", res.data.resultData.openid)
               wx.setStorageSync("phone", res.data.resultData.phoneNumber)
+              wx.setStorageSync("cardchrc", '1')
               wx.reLaunch({
                 url: '/pages/index/index'
               })

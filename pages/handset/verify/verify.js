@@ -11,13 +11,58 @@ Page({
     time:60,
     getmsg: "发送验证码",
     tineTo: true,
-    phone:''
+    phone:'',
+    code:''
   },
   phoneIpt(e){
     // console.log(e.detail.value.replace(/\s+/g, ''))
     this.setData({
       phone: e.detail.value.replace(/\s+/g, '')
     })
+  },
+  codeIpt(e){
+    this.setData({
+      code: e.detail.value.replace(/\s+/g, '')
+    })
+  },
+  nexClid(){
+    let code = this.data.code
+    let _this = this
+    console.log(code.length)
+    if (code.length == 0){
+      wx.showToast({
+        title: '请输入验证码',
+        icon:'none'
+      })
+    }else{
+
+      wx.request({
+        url: app.globalData.src + '/gourdbaby/login/checkCode.action',
+        data: {
+          code: code,
+          sessionId: _this.data.seinid
+        },
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+        success(res) {
+          console.log(res.data.resultCode)
+          if (res.data.resultCode == 200){
+            wx.setStorageSync("cardchrc", '1')
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+
+          }else{
+            wx.showToast({
+              title: '验证码有误',
+              icon: 'none'
+            })
+          }
+        }
+      })
+    }
   },
   timeCld:function() {
     let _this = this
@@ -34,27 +79,35 @@ Page({
         })
       }
     } else {
-      console.log('验证成功')
-      wx.request({
-        url: app.globalData.src + '/gourdbaby/login/getCode.action', 
-        data: {
-          tel: phone
-        },
-        method:'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        success(res) {
-          console.log(res.data)
-        }
-      })
-
-
-
       if (tineTo){
+
+        wx.request({
+          url: app.globalData.src + '/gourdbaby/login/getCode.action',
+          data: {
+            tel: phone
+          },
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success(res) {
+            console.log(res.data.split(','))
+            let seinid = res.data.split(',')[1]
+            _this.setData({
+              seinid: seinid
+            })
+            if (!res.data){
+              wx.showToast({
+                title: '短信发送失败，请重新发送',
+                icon:'none'
+              })
+            }
+          }
+        })
         _this.setData({
           tineTo: false
         })
+
         var inter = setInterval(function () {
           timeNum--
           _this.setData({
@@ -63,7 +116,7 @@ Page({
           if (timeNum == 0){
             clearInterval(inter)
             _this.setData({
-              getmsg: '发动验证码',
+              getmsg: '发送验证码',
               tineTo: true
             })
           }

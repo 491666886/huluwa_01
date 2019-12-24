@@ -90,7 +90,7 @@ Page({
   },
   onLoad: function () {
     console.log(wx.getStorageSync("openid"))
-    if (!wx.getStorageSync("openid")){
+    if (!wx.getStorageSync("cardchrc")){
        wx.reLaunch({
          url: '/pages/login/login',
        }) 
