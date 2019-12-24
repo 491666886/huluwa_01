@@ -1,8 +1,14 @@
 {
   "pages": [
-    "pages/handset/verify/verify",
     "pages/login/login",
     "pages/index/index",
+    "pages/My/collect/collect",
+    "pages/My/basicInfo/basicInfo",
+    "pages/nav/onAccess/onAccess",
+    "pages/nav/moment/moment",
+    "pages/nav/videodetail/videodetail",
+    "pages/handset/wsInfo/wsInfo",
+    "pages/handset/verify/verify",
     "pages/My/collect/collect",
     "pages/My/basicInfo/basicInfo",
     "pages/handset/reviseName/reviseName",
@@ -15,7 +21,6 @@
     "pages/handset/replacePhone/replacePhone",
     "pages/handset/replacePhone/replacePhoneNet",
     "pages/handset/wsInfo/wsInfo",
-    "pages/nav/onAccess/onAccess",
     "pages/handset/examine/examine",
     "pages/gourd/gourdIndex/gourdIndex",
     "pages/logs/logs"
