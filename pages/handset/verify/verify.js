@@ -12,6 +12,7 @@ Page({
   },
   phoneIpt(e){
     console.log(e.detail.value.replace(/\s+/g, ''))
+    
   },
   timeCld:function() {
     let _this = this
