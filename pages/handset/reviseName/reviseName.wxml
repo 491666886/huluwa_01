@@ -1,0 +1,6 @@
+<view>
+  <view class="gh_phone">
+    <input placeholder="请输入昵称" bindinput="nameIpt" value='{{username}}'></input>
+  </view>
+  <view class="next" bindtap="codRow">保存</view>
+</view>

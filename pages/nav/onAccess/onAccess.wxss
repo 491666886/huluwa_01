@@ -1,0 +1,10 @@
+video {
+ width: 750rpx;
+ height: 490rpx;
+}
+
+.classname{
+    font-size: 36rpx;
+    padding: 25rpx 20rpx;
+    display: inline-block;
+}

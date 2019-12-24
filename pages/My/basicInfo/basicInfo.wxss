@@ -1,0 +1,42 @@
+page{
+  background-color: #f7f8fa;
+}
+.list{
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  padding: 0 30rpx;
+  margin: 30rpx 0;
+  background-color: #fff;
+}
+.item{
+  height: 90rpx;
+  border-bottom: 1px solid #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item:last-child{
+  border-bottom: none;
+}
+.user_img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.more{
+  margin-left: 20rpx;
+  width: 14rpx;
+  height: 24rpx;
+}
+.item_r{
+  display: flex;
+  align-items: center;
+}
+.item_l{
+  color: #222222;
+  font-size: 32rpx;
+}
+.item_r text{
+  color: #666666;
+  font-size: 30rpx;
+}

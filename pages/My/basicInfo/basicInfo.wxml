@@ -1,0 +1,55 @@
+<view>
+  <view class="list">
+    <view class="item">
+      <text class="item_l">头像</text>
+      <view class="item_r">
+        <image src="/images/cfa.jpg" class="user_img"></image>
+        <image src="/images/more.png" class="more"></image>
+      </view>
+    </view>
+    <view class="item" bindtap="xgname">
+      <text class="item_l">昵称</text>
+      <view class="item_r">
+        <text>测试</text>
+        <image src="/images/more.png" class="more"></image>
+      </view>
+    </view>
+    <view class="item" bindtap="alterPhone">
+      <text class="item_l">手机号</text>
+      <view class="item_r">
+        <text>154894894</text>
+        <image src="/images/more.png" class="more"></image>
+      </view>
+    </view>
+    <view class="item">
+      <text class="item_l">幼儿园</text>
+      <view class="item_r">
+        <text>国际幼儿园</text>
+      </view>
+    </view>
+    <view class="item">
+      <text class="item_l">关联学生</text>
+      <view class="item_r">
+        <text>张某某</text>
+      </view>
+    </view>
+    <view class="item">
+      <text class="item_l">宝宝身份证号</text>
+      <view class="item_r">
+        <text>12132131548**452</text>
+      </view>
+    </view>
+    <view class="item">
+      <text class="item_l">年级</text>
+      <view class="item_r">
+        <text>一年大级</text>
+      </view>
+    </view>
+    <view class="item">
+      <text class="item_l">班级</text>
+      <view class="item_r">
+        <text>一年级</text>
+      </view>
+    </view>
+  </view>
+</view>
