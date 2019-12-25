@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/nav/videodetail/videodetail",
-    "pages/gourd/gourdIndex/gourdIndex",
+   
+   
     "pages/login/login",
     "pages/index/index",
     "pages/My/collect/collect",
     "pages/My/basicInfo/basicInfo",
     "pages/nav/onAccess/onAccess",
     "pages/nav/moment/moment",
-   
+    "pages/nav/videodetail/videodetail",
     "pages/handset/wsInfo/wsInfo",
     "pages/handset/verify/verify",
     "pages/handset/reviseName/reviseName",
@@ -20,7 +20,7 @@
     "pages/My/integralInfo/integralInfo",
     "pages/handset/replacePhone/replacePhone",
     "pages/handset/replacePhone/replacePhoneNet",
-   
+    "pages/gourd/gourdIndex/gourdIndex",
     "pages/handset/examine/examine",
    
     "pages/logs/logs"

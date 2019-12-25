@@ -1,1 +1,5 @@
 /* pages/gourd/gourdIndex/gourdIndex.wxss */
+image{
+  width: 750rpx;
+  height: 1196rpx;
+}

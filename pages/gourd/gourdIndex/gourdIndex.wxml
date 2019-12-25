@@ -1,4 +1,3 @@
 <view >
-  葫芦
-  <button bindtap="alert"> 提示消息</button>
+  <image src="/images/hulu.png" ></image>
 </view>
