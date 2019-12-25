@@ -11,6 +11,11 @@ Page({
       url: url
     })
   },
+  videoId: function (e) {
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
+   
+  },
   data: {
     list: [
       {
@@ -69,6 +74,8 @@ Page({
     })
   },
   // 动态更新
+ 
+
   gxList(){
     let _this = this
     util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoByChildCard.action', 
@@ -97,7 +104,7 @@ Page({
     }
 
     this.gxList()
-
+    
 
     if (app.globalData.userInfo) {
       this.setData({
