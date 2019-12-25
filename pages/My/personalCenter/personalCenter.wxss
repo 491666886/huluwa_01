@@ -39,13 +39,22 @@
 }
 .invite{
   border: 1px dashed #fff;
-  border-radius: 5rpx;
   font-size: 24rpx;
-  height: 40rpx;
-  padding: 0 14rpx;
+  /* height: 40rpx; */
   line-height: 40rpx;
   color: #fff;
 }
+.invite111{
+  background-color: transparent;
+  font-size: 24rpx;
+  padding: 0;
+  overflow: visible;
+  margin-right: 0;
+}
+button::after{
+  border: none;
+}
+
 .user_money_info{
   padding: 0 10rpx;
   height: 40rpx;

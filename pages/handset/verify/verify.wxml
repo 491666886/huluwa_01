@@ -7,12 +7,12 @@
     <view class="code">
       <view class="code_l">
         <text>验证码</text>
-        <input type="number" placeholder="请输入验证码"></input>
+        <input type="number" bindinput="codeIpt" placeholder="请输入验证码"></input>
       </view>
       <text class="code_r" bindtap="timeCld">{{getmsg}}</text>
     </view>
   </view>
-  <view class="next">
+  <view class="next" bindtap="nexClid">
     下一步
   </view>
 </view>

@@ -1,18 +1,18 @@
 <view>
   <view class="head">
-    <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange" fields='month'>
+    <picker mode="date" value="{{date}}" start="2019-11-11" end="2019-12-01" bindchange="bindDateChange" fields='month'>
         当前选择: {{time}}
     </picker>
-    <image src="/images/icon_bottom01.png"></image>
+    <image src="/images/more.png"></image>
   </view>
   <view class="list">
-    <block wx:for="12">
+    <block wx:for="{{list}}" wx:key='id'>
       <view class="item">
         <view class="item_l">
-          <image src="/images/cfa.jpg"></image>
-          <text>的说法是的</text>
+          <image src="/images/login.png"></image>
+          <text>{{item.name}}</text>
         </view>
-        <view class="item_r">+10</view>
+        <view class="item_r">+{{item.num}}</view>
       </view>
     </block>
   </view>

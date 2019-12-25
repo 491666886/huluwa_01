@@ -1,12 +1,12 @@
 <view>
   <view class="list">
-    <view> 1.的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方</view>
-    <view> 2.的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方</view>
-    <view> 3.的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方</view>
-    <view> 4.的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方的萨芬撒地方</view>
+    <view> 1.积分在每个月的第一天清零并重新计算，可在历史榜单中查询。</view>
+    <view> 2.积分计算方式：宝宝关联的所有家长在本月获得积分的总和。</view>
+    <view> 3.宝宝家长取消关联后，TA的历史贡献的积分依然在当月保留。</view>
+    <view> 4.只有宝宝加入对应入学幼儿园后，家长所得积分才可计入排行榜。</view>
   </view>
   <view class="footer">
-    <text>我知道了</text>
-    <text>前往赚取积分</text>
+    <text bindtap="goPrevious">我知道了</text>
+    <text bindtap="goPreviouTwos">前往赚取积分</text>
   </view>
 </view>

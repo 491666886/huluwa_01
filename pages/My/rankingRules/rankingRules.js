@@ -7,7 +7,16 @@ Page({
   data: {
 
   },
-
+  goPrevious(){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goPreviouTwos(){
+    wx.navigateTo({
+      url: '/pages/My/integral/integral',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
