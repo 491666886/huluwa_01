@@ -1,18 +1,41 @@
 // pages/nav/videodetail/videodetail.js
+const app = getApp()
+const util = require('../../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    video:''
   },
-
+  getVideo(vid) {
+    let _this = this;
+    util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoCount.action', {
+      videoId: vid
+    }).then(function (res) {
+      if (res.data.status == 200) {
+        console.log(res.data.t)
+        _this.setData({
+          video: res.data.t,
+        })
+      console.log(_this.data.video)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (option) {
+    let that =this
+    const eventChannel = this.getOpenerEventChannel()
+    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+    eventChannel.on('acceptDataFromOpenerPage', function (data) {
+      var vid = data.data;
+      console.log(vid);
+      that.getVideo(vid);
+    })
+    
   },
 
   /**

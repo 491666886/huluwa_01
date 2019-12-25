@@ -1,12 +1,12 @@
 <view>
 <view class="head">
   <view class="video">
-    <video src="https://v-cdn.zjol.com.cn/280443.mp4"></video>
+    <video src="http://10.150.27.90:10000/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
   </view>
   <view class="broadcast_info">
   <image class="play" src="/images/play.png"></image>
-    <text class="broadcast_num"> 4 </text>
-    <text class="time"> 2019-12-18</text>
+    <text class="broadcast_num"> {{video.count}} </text>
+    <text class="time"> {{video.createTime}}</text>
     
      <text class="broadcast_day">4 天</text>
      <image class="icon" src="/images/uncollect.png"></image>
@@ -14,7 +14,7 @@
      <image class="icon"  src="/images/share.png"></image>
   </view>
   <view class="title">
-  <text class="text">测试测试测试文本</text>
+  <text class="text">{{video.title}}</text>
   </view>
   <view class="detail">
    <text class="text">这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的 标准，目的是通过课程改革，促进美术教育在我国基础教育体系。 这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的 标准，目的是通过课程改革，促进美术教育在我国基础教育体系。</text>

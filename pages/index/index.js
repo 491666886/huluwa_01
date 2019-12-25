@@ -14,7 +14,15 @@ Page({
   videoId: function (e) {
     var id = e.currentTarget.dataset.id;
     console.log(id);
+    wx.navigateTo({
+      url: "../nav/videodetail/videodetail",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      }
+    })
    
+
   },
   data: {
     list: [
