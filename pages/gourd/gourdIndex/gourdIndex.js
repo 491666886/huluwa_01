@@ -7,7 +7,13 @@ Page({
   data: {
 
   },
-
+  alert() {
+    wx.showToast({
+      title: '待开发，敬请期待。',
+      icon: 'none',
+      duration: 2000
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

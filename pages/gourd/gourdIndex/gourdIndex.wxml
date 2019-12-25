@@ -1,3 +1,4 @@
-<view>
+<view >
   葫芦
+  <button bindtap="alert"> 提示消息</button>
 </view>

@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "葫芦"
+  "navigationBarTitleText": "葫芦娃",
+  "navigationBarBackgroundColor": "#FF9422",
+  "navigationBarTextStyle": "white"
 }
