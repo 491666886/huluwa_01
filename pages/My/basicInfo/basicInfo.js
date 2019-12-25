@@ -9,16 +9,20 @@ Page({
   data: {
 
   },
-  alterPhone() {
-    wx.navigateTo({
-      url: '/pages/handset/replacePhone/replacePhoneNet',
-    })
-  },
-  xgname () {
-    wx.navigateTo({
-      url: '/pages/handset/reviseName/reviseName',
-    })
-  },
+  // 修改手机号
+  // 测试注释掉，后期打开
+  // alterPhone() {
+  //   wx.navigateTo({
+  //     url: '/pages/handset/replacePhone/replacePhoneNet',
+  //   })
+  // },
+  // 修改昵称
+  // 测试注释掉，后期打开
+  // xgname () {
+  //   wx.navigateTo({
+  //     url: '/pages/handset/reviseName/reviseName',
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */

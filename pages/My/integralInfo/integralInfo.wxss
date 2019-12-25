@@ -19,6 +19,7 @@ page{
 .head image{
   width: 24rpx;
   height: 14rpx;
+  transform:rotate(90deg);
 }
 .item{
   background-color: #fff;

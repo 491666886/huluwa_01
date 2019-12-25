@@ -30,7 +30,31 @@ Page({
       url: '/pages/My/collect/collect',
     })
   },
-
+  userInfo(){
+    console.log('213')
+    wx.navigateTo({
+      url: '/pages/My/basicInfo/basicInfo',
+    })
+  },
+  // 退出登录
+  Logout(){
+    console.log('234d')
+    wx.showModal({
+      title: '是否退出登录',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.reLaunch({
+            url: '/pages/login/login'
+          })
+          // 删除登录状态
+          wx.removeStorageSync('cardchrc')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -83,7 +107,19 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '对对对',
+      path: '/pages/index/index',
+      imageUrl:'/images/cs.jpg',
+      success: function (res) {
+        console.log('成功', res)
+      }
 
+    }
   }
 })

@@ -1,7 +1,7 @@
 <view>
   <view class="head">
     <image class="hd_bj" src="/images/jfbj.png"></image>
-    <text class="jf_detailed">积分明细</text>
+    <text class="jf_detailed" bindtap="jfDetailed">积分明细</text>
     <view class="user">
       <image src="/images/cs.jpg"></image>
       <view>积分：1532</view>

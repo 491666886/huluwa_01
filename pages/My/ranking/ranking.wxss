@@ -1,4 +1,27 @@
 
+.time_select{
+  margin: 10rpx;
+  border: 5rpx solid #EEEEEE;
+  background-color: #fff;
+  height: 70rpx;
+  border-radius: 45rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.time_select picker{
+  color: #999999;
+  font-size: 28rpx;
+  flex: 1;
+}
+.time_select image{
+  width: 24rpx;
+  height: 14rpx;
+  transform:rotate(90deg);
+}
+
+
 .head{
   position: relative;
   height: 300rpx;
@@ -14,11 +37,11 @@
 }
 
 .hd_tl{
-  padding-top: 40rpx;
   font-size: 24rpx;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 40rpx 20rpx 0;
 }
 .hd_tl image{
   width: 20rpx;
