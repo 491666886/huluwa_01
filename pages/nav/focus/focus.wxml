@@ -1,4 +1,4 @@
-<!--pages/nav/moment/moment.wxml-->
+<view class="page"  >
 <view class="warning">
   <icon type="warn" size="25rpx" color="#E98C2B" class="icon"></icon>
   <text>视频在删除前会显示剩余天数，之后将永久删除</text>
@@ -6,7 +6,7 @@
 
 
  <block wx:for='{{dynamicList}}' wx:key='id'>
- <view class="moment" data-id="{{item.videoId}}" bindtap="videoId">
+ <view class="moment" data-id="{{item.videoId}}" bindtap="videoId" >
   <image class="img" src="{{item.image}}"></image>
   <image class="play" src="/images/moment.png"></image>
   <text class="title">{{item.title}}</text>
@@ -19,3 +19,4 @@
   </view>
   </view>
 </block>
+</view>

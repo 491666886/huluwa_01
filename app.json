@@ -1,13 +1,12 @@
 {
   "pages": [
    
-   
-    "pages/login/login",
     "pages/index/index",
     "pages/My/collect/collect",
     "pages/My/basicInfo/basicInfo",
     "pages/nav/onAccess/onAccess",
     "pages/nav/moment/moment",
+    "pages/nav/focus/focus",
     "pages/nav/videodetail/videodetail",
     "pages/handset/wsInfo/wsInfo",
     "pages/handset/verify/verify",
@@ -22,7 +21,7 @@
     "pages/handset/replacePhone/replacePhoneNet",
     "pages/gourd/gourdIndex/gourdIndex",
     "pages/handset/examine/examine",
-   
+    "pages/login/login",
     "pages/logs/logs"
   ],
   "window": {

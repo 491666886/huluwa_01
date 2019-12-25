@@ -1,4 +1,4 @@
-// pages/nav/onAccess/onAccess.js
+// pages/nav/moment/moment.js
 const app = getApp()
 const util = require('../../../utils/util')
 Page({
@@ -7,22 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    video: {
-      videourl: '',
-      classname: '3年2班',
-      watchnum: '25',
-      curriculum: '美术课',
-      people: '31/32'
-
-    },
-    dynamicList: '1234',
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    dynamicList: '',
+    pageBackgroundColor: '#5cb85c'
   },
   videoId: function (e) {
     var id = e.currentTarget.dataset.id;
+    console.log(id);
     wx.navigateTo({
       url: "/pages/nav/videodetail/videodetail",
       success: function (res) {
@@ -34,33 +24,39 @@ Page({
   gxList() {
     let _this = this;
     console.log(app.globalData.src);
-    util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoByChildCard.action', {
+    util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoByChildCardAndCategory.action', {
       childCard: 2,
       pageNo: 1,
       pageSize: 10,
+      category: '焦点人物',
     }).then(function(res) {
-      // console.log(res.data.t)
       if (res.data.status == 200) {
         const list = res.data.t;
-        list.forEach(({
-          createTime
-        }) => {
-          var sdate = new Date(createTime.replace(/-/g, "/"));　　
-          var now = new Date();　　
-          var days = now.getTime() - sdate.getTime();　　
-          var day = parseInt(days / (1000 * 60 * 60 * 24));
-          let array = [];
-          list.map((item, index) => {
-            array.push(
-              Object.assign({}, item, {
-                retime: 7 - day //视频剩余时间计算结果
-              })
-            )
+        if (list.length != 0) {
+          list.forEach(({
+            createTime
+          }) => {
+            var sdate = new Date(createTime.replace(/-/g, "/"));
+            var now = new Date();
+            var days = now.getTime() - sdate.getTime();
+            var day = parseInt(days / (1000 * 60 * 60 * 24));
+            let array = [];
+            list.map((item, index) => {
+              array.push(
+                Object.assign({}, item, {
+                  retime: 7 - day //视频剩余时间计算结果
+                })
+              )
+            });
+            _this.setData({
+              dynamicList: array
+            })
           });
+        } else {
           _this.setData({
-            dynamicList: array
-          })
-        });
+            pageBackgroundColor : 'red'
+          });
+        }
 
       }
     })
@@ -68,11 +64,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
-  
-  
-    this.gxList()
-
+  onLoad: function(options) {
+    this.gxList();
   },
 
   /**

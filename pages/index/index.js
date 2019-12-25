@@ -13,7 +13,7 @@ Page({
   },
   videoId: function (e) {
     var id = e.currentTarget.dataset.id;
-    console.log(id);
+   
     wx.navigateTo({
       url: "../nav/videodetail/videodetail",
       success: function (res) {
@@ -21,8 +21,6 @@ Page({
         res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
       }
     })
-   
-
   },
   data: {
     list: [
@@ -38,7 +36,8 @@ Page({
       },
       {
         src: '/images/icon03.png',
-        info: '焦点人物'
+        info: '焦点人物',
+        url: "../nav/focus/focus"
       },
       {
         src: '/images/icon04.png',

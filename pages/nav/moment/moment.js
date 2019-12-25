@@ -9,6 +9,17 @@ Page({
   data: {
     dynamicList: '',
   },
+  videoId: function (e) {
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
+    wx.navigateTo({
+      url: "/pages/nav/videodetail/videodetail",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      }
+    })
+  },
   gxList() {
     let _this = this;
     console.log(app.globalData.src);
