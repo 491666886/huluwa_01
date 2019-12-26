@@ -1,5 +1,12 @@
 /* pages/gourd/gourdIndex/gourdIndex.wxss */
+page{
+  height: 100%;
+
+}
+view{
+  height: 100%;
+}
 image{
   width: 750rpx;
-  height: 1196rpx;
+  height: 100%;
 }

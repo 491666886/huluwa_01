@@ -49,6 +49,16 @@ Page({
     ],
     listCot:['1','2','3']
   },
+  videoId: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/nav/videodetail/videodetail",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      }
+    })
+  },
   watchIpt(e){
     console.log(e.detail.value)
   },
