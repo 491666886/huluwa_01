@@ -7,7 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    video:''
+    video:'',
+    collectShow: true
+  },
+  // 收藏
+  collectIn(){
+    console.log('123')
+    let collectShow = this.data.collectShow
+    this.setData({
+      collectShow: !collectShow
+    })
   },
   getVideo(vid) {
     let _this = this;
@@ -83,7 +92,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '侧呃呃',
+      // path: '/page/user?id=123'
+    }
   }
 })

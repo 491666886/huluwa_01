@@ -9,9 +9,11 @@
     <text class="time"> {{video.createTime}}</text>
     
      <text class="broadcast_day">4 天</text>
-     <image class="icon" src="/images/uncollect.png"></image>
+     <image bindtap="collectIn" wx:if='{{collectShow}}' class="icon" src="/images/uncollect.png"></image>
+     <image bindtap="collectIn" wx:if='{{!collectShow}}' class="icon" src="/images/collect.png"></image>
      <image class="icon"  src="/images/save.png"></image>
-     <image class="icon"  src="/images/share.png"></image>
+     <button plain='true'open-type='share' hover-class='none' style="background-image:url('/images/share.png');" class="fx_share"></button>
+     <!-- <image class="icon"  src="/images/share.png"></image> -->
   </view>
   <view class="title">
   <text class="text">{{video.title}}</text>
