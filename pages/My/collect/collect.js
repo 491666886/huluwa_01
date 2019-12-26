@@ -12,21 +12,21 @@ Page({
     checkAll:false,
     delId:[],
     listCot: [
-      {
-        id:1,
-        checked: false,
-        value:'1111'
-      },
-      {
-        id: 2,
-        checked: false,
-        value: '222'
-      },
-      {
-        id: 3,
-        checked: false,
-        value: '333'
-      }
+      // {
+      //   id:1,
+      //   checked: false,
+      //   value:'1111'
+      // },
+      // {
+      //   id: 2,
+      //   checked: false,
+      //   value: '222'
+      // },
+      // {
+      //   id: 3,
+      //   checked: false,
+      //   value: '333'
+      // }
     ],
     pageOt:1,
     pageIndex: 1

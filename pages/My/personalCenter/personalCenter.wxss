@@ -63,10 +63,14 @@ button::after{
   color: #9E2121;
   font-size: 24rpx;
   border-radius: 5rpx;
+  display: flex;
 }
 .user_money_info image{
   width: 24rpx;
   height: 24rpx;
+}
+.user_money_info text{
+  margin: 0 30rpx 0 10rpx;
 }
 .user_child{
   height: 40rpx;

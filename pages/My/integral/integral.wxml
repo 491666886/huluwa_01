@@ -4,21 +4,21 @@
     <text class="jf_detailed" bindtap="jfDetailed">积分明细</text>
     <view class="user">
       <image src="/images/cs.jpg"></image>
-      <view>积分：1532</view>
-      <text>已连续登录85天</text>
+      <view>积分：900</view>
+      <text>已连续登录16天</text>
     </view>
   </view>
   <view class="cont">
     <view class="cot_title">积分任务</view>  
     <view class="list">
-      <view class="item" wx:for="12">
-        <image class="jf_icon" src="/images/jf_icon_1.png"></image>
+      <view class="item" wx:for="{{list}}" wx:key='id'>
+        <image class="jf_icon" src="/images/login.png"></image>
         <view class="item_info">
           <view class="item_in_t">
-            <text>每日任务</text>
-            <text>+41</text>
+            <text>{{item.integralRuleName}}</text>
+            <text>+{{item.integralRuleValue}}</text>
           </view>
-          <view class="item_in_b">前往浇水页面,购买育儿课程或相关商品</view>
+          <!-- <view class="item_in_b">前往浇水页面,购买育儿课程或相关商品</view> -->
         </view>
         <!-- <view class="item_state go">前往赚取</view> -->
         <view class="item_state no">完成</view>

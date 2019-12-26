@@ -10,15 +10,21 @@ Page({
     objectArray: [
       {
         id: 0,
-        name: '美国'
+        name: '张浩月'
       },
       {
         id: 1,
-        name: '中飞国'
+        name: '添加宝宝'
       }
     ]
   },
-
+// 跳转积分页面
+  integralClid(){
+    console.log('123')
+    wx.navigateTo({
+      url: '/pages/My/integral/integral',
+    })
+  },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({

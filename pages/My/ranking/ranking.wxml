@@ -30,7 +30,7 @@
     <picker mode="date" value="{{date}}" start="2019-11-11" end="2019-12-01" bindchange="bindDateChange" fields='month'>
         当前选择: {{time}}
     </picker>
-    <image src="/images/more.png"></image>
+    <image src="/images/xiala.png"></image>
   </view>
   <view class="list">
     <block wx:for='{{list}}' wx:key='id'>

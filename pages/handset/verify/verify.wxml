@@ -2,7 +2,7 @@
   <view class="cont">
     <view class="phone">
       <text>手机号</text>
-      <input type="number" bindinput="phoneIpt" maxlength='11' placeholder="请输入关联手机号"></input>
+      <input type="number" bindinput="phoneIpt" maxlength='11' placeholder="请输入手机号"></input>
     </view>
     <view class="code">
       <view class="code_l">

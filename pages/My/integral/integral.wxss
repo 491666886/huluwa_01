@@ -75,7 +75,8 @@ page{
 }
 .item_state{
   width: 134rpx;
-  margin-left: 20rpx;
+  /* margin-left: 20rpx; */
+  margin-left: auto;
 }
 .item{
   display: flex;

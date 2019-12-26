@@ -11,16 +11,20 @@
         </view>
         <view class="hd_rt_b">
           <view class="user_money_info">
-            <image src="/images/money.png"></image> 0 
-            <image src="/images/integral.png"></image> 900
+            <view>
+              <image src="/images/money.png"></image><text>0</text>
+            </view>
+            <view bindtap="integralClid">
+              <image src="/images/integral.png"></image> 900
+            </view>
           </view>
           <!-- 选择孩子、后期接口调用 -->
-          <!-- <view class="user_child">
+          <view class="user_child">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'name'}}">
               <text>{{objectArray[index].name}}</text>
               <image src="/images/icon_x.png"></image>
             </picker>
-          </view> -->
+          </view>
         </view>
       </view>
     </view>

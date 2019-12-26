@@ -42,6 +42,11 @@ Page({
       {
         src: '/images/icon04.png',
         info: '学生签到'
+      }, 
+      {
+        src: '/images/icon_xp.png',
+        info: '学生排行榜',
+        url: "/pages/My/ranking/ranking"
       },
       {
         src: '/images/icon05.png',
@@ -62,10 +67,6 @@ Page({
       {
         src: '/images/icon09.png',
         info: '学校新闻'
-      },
-      {
-        src: '/images/icon10.png',
-        info: '幼儿园简介'
       }
     ],
     dynamicList:'1234',
