@@ -35,8 +35,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    // src: 'http://192.168.2.164:8088',
+    src: 'https://hulu.ehualu.com:28080',
+    // src: 'http://60.30.149.10:28080',
     // src: 'http://192.168.2.147:8080'
-    src: 'http://10.150.27.90:8080'
+    // src: 'http://10.150.27.90:8080'
   }
 })
