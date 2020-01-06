@@ -1,7 +1,9 @@
 <view>
+<view class="background">
   <view class="head">
-    <image src="/images/jfbj.png" class="hd_img_bj"></image>
+    <image src="/images/background1.png" class="hd_img_bj"></image>
     <view class="hd_tl">
+      <view bindtap="Rule">
       <image src="/images/icon_pm.png"></image>
       <text>排名规则</text>
     </view>
@@ -13,27 +15,36 @@
     </view> 
   </view>
   <view class="name nameO">
-    <text>士大夫萨达</text>
-    <text>741</text>
+    <text>张欣源</text>
+    <text>780</text>
   </view>
   <view class="name nameT">
-    <text>士大夫萨达</text>
-    <text>741</text>
+    <text>第三名</text>
+    <text>关联家长：1</text>
   </view>
   <view class="tips">
     <text>距离上一名还差20积分</text>
-  </view>
+  </view> -->
+  
+  <view class="time_select">
+    <picker mode="date" value="{{date}}" start="2019-11-11" end="2019-12-01" bindchange="bindDateChange" fields='month'>
+        当前选择: {{time}}
+    </picker>
+    <image src="/images/xiala.png"></image>
+  </view> </view>
   <view class="list">
-    <view class="item">
-      <text class="item_idx">1</text>
-      <image src="/images/cfa.jpg" class="item_img"></image>
-      <view class="item_user">
-        <text>都烦死哒</text>
-        <text>本月荣获第一</text>
-      </view>
-      <view class="item_jf">
-        <text>2052</text>
-        <text>关联家长：5</text>
+    <block wx:for='{{list}}' wx:key='id'>
+      <view class="item" style="background-color:{{item.color}}">
+        <text class="item_idx">{{index + 1}}</text>
+        <image src="{{item.babyImg}}" class="item_img"></image>
+        <view class="item_user" >
+          <text class="{{item.color}}">{{item.name}}</text>
+          <text wx:if='{{index == 0}}'>本月荣获第一</text>
+        </view>
+        <view class="item_jf">
+          <text>{{item.integral}}</text>
+          <text>关联家长：{{item.reancyNum}}</text>
+        
       </view>
     </view>
   </view>

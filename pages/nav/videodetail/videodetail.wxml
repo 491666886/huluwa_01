@@ -1,19 +1,27 @@
 <view>
 <view class="head">
   <view class="video">
-    <video src="https://v-cdn.zjol.com.cn/280443.mp4"></video>
+    <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
   </view>
   <view class="broadcast_info">
-    <text class="time">2019-12-18</text>
-    <image class="play" src="/images/play.png"></image>
-    <text class="broadcast_num"> 4</text>
+  <image class="play" src="/images/play.png"></image>
+    <text class="broadcast_num"> {{video.count}} </text>
+    <text class="time"> {{video.createTime}}</text>
+    
      <text class="broadcast_day">4 天</text>
-     <image class="icon" src="/images/share.png"></image>
+     <image bindtap="collectIn" wx:if='{{!collectShow}}' class="icon" src="/images/uncollect.png"></image>
+     <image bindtap="collectIn" wx:if='{{collectShow}}' class="icon" src="/images/collect.png"></image>
      <image class="icon"  src="/images/save.png"></image>
-     <image class="icon"  src="/images/uncollect.png"></image>
+     <!-- <button plain='true'open-type='share' hover-class='none' style="background-image:url('/images/share.png');" class="fx_share"></button> -->
+     
+     <button plain='true'open-type='share' hover-class='none' class="fx_share"></button>
+     <!-- <image class="icon"  src="/images/share.png"></image> -->
+  </view>
+  <view class="title">
+  <text class="text">{{video.title}}</text>
   </view>
   <view class="detail">
-  <text>测试测试测试文本</text>
-  </view>
+   <text class="text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</text>
+   </view>
 </view>
 </view>

@@ -14,8 +14,8 @@
     <text bindtap='twoCid' wx:for='{{twoList}}' wx:key="id" data-cotnum='{{index}}' class="{{twoTab==index ? 'active' : ''}}">{{item.categrayName}}</text>
   </view>
   <view class="list_cot">
-    <block wx:for='{{listCot}}' wx:key='id'>
-      <view class="item">
+    <block wx:for='{{listCot}}' wx:key='id' >
+      <view class="item" data-id="{{item.videoId}}" bindtap="videoId" >
         <view class="item_lt">
           <image src="{{item.image}}"></image>
           <text>{{time[index]}}</text>
@@ -33,4 +33,5 @@
       </view>
     </block>
   </view>
+ <view   wx:if="{{twoList.length == 0}}"><image  class="img" src="https://hulu.ehualu.com:2443/tmpPageList/{{currentTab}}.jpg"></image></view>
 </view>

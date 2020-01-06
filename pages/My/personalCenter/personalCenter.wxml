@@ -2,20 +2,26 @@
   <view class="head">
     <image src="/images/jfbj.png" class="bgi"></image>
     <view class="hd_cot">
-      <image src="/images/cs.jpg" class="hd_lt_img"></image>
+      <image src="/images/zhy3.jpg" class="hd_lt_img" bindtap="userInfo"></image>
       <view class="hd_rt">
         <view class="hd_rt_t">
-          <text class="user_name">小葫芦撒地方</text>
-          <view class="invite">+ 要请家人</view>
+          <text class="user_name">张欣源</text>
+          <!-- <view class="invite">+ 邀请家人</view> -->
+          <button class="invite invite111"  color="block"  hover-class='none' open-type='share'><text>+邀请家人</text></button>
         </view>
         <view class="hd_rt_b">
           <view class="user_money_info">
-            <image src="/images/money.png"></image>123
-            <image src="/images/integral.png"></image>333
+            <view>
+              <image src="/images/money.png"></image><text>0</text>
+            </view>
+            <view bindtap="integralClid">
+              <image src="/images/integral.png"></image> 780
+            </view>
           </view>
+          <!-- 选择孩子、后期接口调用 -->
           <view class="user_child">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'name'}}">
-              <text>{{objectArray[index].name}}</text>
+              <text>张欣源</text>
               <image src="/images/icon_x.png"></image>
             </picker>
           </view>
@@ -49,7 +55,7 @@
       <view>问题反馈</view>
       <image class="icon_more" src="/images/more.png"></image>
     </view>
-    <view class="item">
+    <view class="item" bindtap="Logout">
       <image class="item_icon" src="/images/my_icon_6.png"></image>
       <view>退出登录</view>
       <image class="icon_more" src="/images/more.png"></image>

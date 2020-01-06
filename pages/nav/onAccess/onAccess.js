@@ -12,7 +12,8 @@ Page({
       classname: '3年2班',
       watchnum: '25',
       curriculum: '美术课',
-      people: '31/32'
+      people: '31/32',
+      teacher:'张兰'
 
     },
     dynamicList: '1234',
@@ -20,6 +21,16 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  videoId: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/nav/videodetail/videodetail",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      }
+    })
   },
   gxList() {
     let _this = this;
@@ -59,7 +70,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-
+  
+  
     this.gxList()
 
   },

@@ -6,9 +6,21 @@ const util = require('../../utils/util')
 Page({
   tapName: function (e) {
     var url = e.currentTarget.dataset.url;
-    console.log(url)
+   
     wx.navigateTo({
-      url: url
+      url: url,
+     
+    })
+  },
+  videoId: function (e) {
+    var id = e.currentTarget.dataset.id;
+   
+    wx.navigateTo({
+      url: "../nav/videodetail/videodetail",
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      }
     })
   },
   data: {
@@ -25,35 +37,44 @@ Page({
       },
       {
         src: '/images/icon03.png',
-        info: '焦点人物'
+        info: '焦点人物',
+        url: "../nav/focus/focus"
       },
       {
         src: '/images/icon04.png',
-        info: '学生签到'
+        info: '学生签到',
+        url: '../nav/common/common?title=学生签到&page=1',
+        
+      }, 
+      {
+        src: '/images/icon_xp.png',
+        info: '学生排行榜',
+        url: "/pages/My/ranking/ranking"
       },
       {
         src: '/images/icon05.png',
-        info: '活动通达'
+        info: '活动通知',
+        url: '../nav/common/common?title=活动通知&page=2'
       },
       {
         src: '/images/icon06.png',
-        info: '家庭作业'
+        info: '亲子互动',
+        url: '../nav/common/common?title=亲子互动&page=3'
       },
       {
         src: '/images/icon07.png',
-        info: '班级活动'
+        info: '班级活动',
+        url: '../nav/common/common?title=班级活动&page=4'
       },
       {
         src: '/images/icon08.png',
-        info: '今日食谱'
+        info: '今日食谱',
+        url: '../nav/common/common?title=今日食谱&page=5'
       },
       {
         src: '/images/icon09.png',
-        info: '学校新闻'
-      },
-      {
-        src: '/images/icon10.png',
-        info: '幼儿园简介'
+        info: '学校新闻',
+        url: '../nav/common/common?title=学校新闻&page=6'
       }
     ],
     dynamicList:'1234',
@@ -69,6 +90,8 @@ Page({
     })
   },
   // 动态更新
+ 
+
   gxList(){
     let _this = this
     util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoByChildCard.action', 
@@ -90,14 +113,14 @@ Page({
   },
   onLoad: function () {
     console.log(wx.getStorageSync("openid"))
-    if (!wx.getStorageSync("openid")){
+    if (!wx.getStorageSync("cardchrc")){
        wx.reLaunch({
          url: '/pages/login/login',
        }) 
     }
 
     this.gxList()
-
+    
 
     if (app.globalData.userInfo) {
       this.setData({

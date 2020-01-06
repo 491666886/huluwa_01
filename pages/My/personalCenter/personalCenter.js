@@ -10,15 +10,21 @@ Page({
     objectArray: [
       {
         id: 0,
-        name: '美国'
+        name: '张欣源'
       },
       {
         id: 1,
-        name: '中飞国'
+        name: '添加宝宝'
       }
     ]
   },
-
+// 跳转积分页面
+  integralClid(){
+    console.log('123')
+    wx.navigateTo({
+      url: '/pages/My/integral/integral',
+    })
+  },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -30,7 +36,31 @@ Page({
       url: '/pages/My/collect/collect',
     })
   },
-
+  userInfo(){
+    console.log('213')
+    wx.navigateTo({
+      url: '/pages/My/basicInfo/basicInfo',
+    })
+  },
+  // 退出登录
+  Logout(){
+    console.log('234d')
+    wx.showModal({
+      title: '是否退出登录',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.reLaunch({
+            url: '/pages/login/login'
+          })
+          // 删除登录状态
+          wx.removeStorageSync('cardchrc')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -83,7 +113,19 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '对对对',
+      path: '/pages/index/index',
+      imageUrl:'/images/cs.jpg',
+      success: function (res) {
+        console.log('成功', res)
+      }
 
+    }
   }
 })

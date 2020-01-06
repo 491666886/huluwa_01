@@ -39,13 +39,24 @@
 }
 .invite{
   border: 1px dashed #fff;
-  border-radius: 5rpx;
   font-size: 24rpx;
-  height: 40rpx;
-  padding: 0 14rpx;
+  /* height: 40rpx; */
   line-height: 40rpx;
   color: #fff;
 }
+.invite111{
+   width: 150rpx;
+   height: 40rpx;
+   padding-left: 0;
+   padding-right: 0;
+   text-align: center;
+  background-color: transparent;
+  margin-right: 0;
+}
+button::after{
+  border: none;
+}
+
 .user_money_info{
   padding: 0 10rpx;
   height: 40rpx;
@@ -54,10 +65,14 @@
   color: #9E2121;
   font-size: 24rpx;
   border-radius: 5rpx;
+  display: flex;
 }
 .user_money_info image{
   width: 24rpx;
   height: 24rpx;
+}
+.user_money_info text{
+  margin: 0 30rpx 0 10rpx;
 }
 .user_child{
   height: 40rpx;

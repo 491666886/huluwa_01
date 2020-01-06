@@ -6,24 +6,64 @@ Page({
    */
   data: {
     time: '',
+    list1:[
+      {
+        name:'小葫芦妈妈登录',
+        num:10
+      },
+      {
+        name: '发送到发多少',
+        num: 10
+      }
+    ],
+    list2: [
+      {
+        name: '士大夫但是',
+        num: 10
+      },
+      {
+        name: '大幅度',
+        num: 10
+      }
+    ],
+    list:[]
   },
   
   bindDateChange: function (e) {
+    console.log(e.detail.value.split('-'))
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      date: e.detail.value
+      time: e.detail.value
     })
+    if (e.detail.value.split('-')[1] % 2 == 0) {
+      this.setData({
+        list: this.data.list1
+      })
+    } else {
+      this.setData({
+        list: this.data.list2
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var time = util.formatTime(new Date());
-    console.log(time.split('-'))
+    console.log(time.split('-')[1])
     this.setData({
       time: time
     })
     console.log(this.data.time)
+    if (time.split('-')[1] % 2 == 0) {
+      this.setData({
+        list: this.data.list1
+      })
+    } else {
+      this.setData({
+        list: this.data.list2
+      })
+    }
   },
 
   /**

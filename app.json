@@ -7,8 +7,9 @@
     "pages/My/basicInfo/basicInfo",
     "pages/nav/onAccess/onAccess",
     "pages/nav/moment/moment",
-   "pages/nav/focus/focus",
+    "pages/nav/focus/focus",
     "pages/nav/videodetail/videodetail",
+    "pages/nav/common/common",
     "pages/handset/wsInfo/wsInfo",
     "pages/handset/verify/verify",
     "pages/handset/reviseName/reviseName",
@@ -20,9 +21,9 @@
     "pages/My/integralInfo/integralInfo",
     "pages/handset/replacePhone/replacePhone",
     "pages/handset/replacePhone/replacePhoneNet",
-   
-    "pages/handset/examine/examine",
     "pages/gourd/gourdIndex/gourdIndex",
+    "pages/handset/examine/examine",
+    
     "pages/logs/logs"
   ],
   "window": {
@@ -61,6 +62,6 @@
       }
     ]
   },
-  "style": "v2",
+  
   "sitemapLocation": "sitemap.json"
 }

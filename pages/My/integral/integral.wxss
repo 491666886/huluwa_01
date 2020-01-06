@@ -17,7 +17,7 @@ page{
   height: 40rpx;
   line-height: 40rpx;
   font-size: 26rpx;
-  background: rgba(1, 1, 1, .5);
+  background: rgba(245, 141, 58, .8);
   color: #fff;
   opacity: .5;
   padding: 4rpx 10rpx;
@@ -75,7 +75,8 @@ page{
 }
 .item_state{
   width: 134rpx;
-  margin-left: 20rpx;
+  /* margin-left: 20rpx; */
+  margin-left: auto;
 }
 .item{
   display: flex;

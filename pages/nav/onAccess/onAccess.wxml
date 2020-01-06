@@ -1,7 +1,7 @@
 <view>
 <view class="head">
   <view class="video">
-    <video src="https://v-cdn.zjol.com.cn/280443.mp4"></video>
+    <video src="https://hulu.ehualu.com:2443/videos/tmpvideo1.mp4"></video>
   </view>
   <view class="detail">
     <view class="title">
@@ -19,8 +19,8 @@
   <view class="dynamic">
    
      <view class="dynamic_cot">
-      <block wx:for='{{dynamicList}}' wx:key='id'>
-        <view class="dynamic_item">
+      <block wx:for='{{dynamicList}}' wx:key='id' >
+        <view class="dynamic_item"  data-id="{{item.videoId}}"  bindtap="videoId">
           <view class="dynamic_item_lt">
             <image src="{{item.image}}"></image>
             <text>{{item.videoDuration}}</text>

@@ -1,0 +1,4 @@
+<view>
+  <image src="https://hulu.ehualu.com:2443/pageList/{{page}}.jpg" ></image>
+
+</view>

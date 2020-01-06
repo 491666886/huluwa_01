@@ -6,7 +6,7 @@
 
 
  <block wx:for='{{dynamicList}}' wx:key='id'>
- <view class="moment">
+ <view class="moment" data-id="{{item.videoId}}" bindtap="videoId">
   <image class="img" src="{{item.image}}"></image>
   <image class="play" src="/images/moment.png"></image>
   <text class="title">{{item.title}}</text>

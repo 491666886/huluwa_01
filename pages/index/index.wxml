@@ -13,8 +13,8 @@
   <view class="dynamic">
     <view class="head_title">动态更新</view>
     <view class="dynamic_cot">
-      <block wx:for='{{dynamicList}}' wx:key='id'>
-        <view class="dynamic_item">
+      <block wx:for='{{dynamicList}}' wx:key='id'  >
+        <view class="dynamic_item" data-id="{{item.videoId}}" bindtap="videoId" >
           <view class="dynamic_item_lt">
             <image src="{{item.image}}"></image>
             <text>{{time[index]}}</text>

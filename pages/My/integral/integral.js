@@ -1,18 +1,38 @@
-// pages/My/integral/integral.js
+//获取应用实例
+const app = getApp()
+const util = require('../../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[]
   },
-
+  jfDetailed() {
+    wx.navigateTo({
+      url: '/pages/My/integralInfo/integralInfo',
+    })
+  },
+  task(){
+    let _this = this
+    util.post(app.globalData.src + '/gourdbaby/gourdChildUser/findUserIntegralRoles.action',
+      {
+        
+      }).then(res =>{
+        console.log(res.data.t)
+        if(res.data.status == 200){
+          _this.setData({
+            list: res.data.t
+          })
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.task()
   },
 
   /**
