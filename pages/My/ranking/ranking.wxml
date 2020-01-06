@@ -4,14 +4,15 @@
     <image src="/images/background1.png" class="hd_img_bj"></image>
     <view class="hd_tl">
       <view bindtap="Rule">
-      <image src="/images/icon_pm.png"></image>
-      <text>排名规则</text>
+        <image src="/images/icon_pm.png"></image>
+        <text>排名规则</text>
+      </view>
     </view>
-    <view class="he_name">打发斯蒂芬撒地方</view>
+    <view class="he_name">{{oneJName}}</view>
     <view class="user_info">
-      <text>积分：5411</text>
-      <image src="/images/cfa.jpg"></image>
-      <text>关联家长数：75</text>
+      <text>积分：{{oneJf}}</text>
+      <image src="{{oneImg}}"></image>
+      <text>关联家长数：{{oneJznum}}</text>
     </view> 
   </view>
   <view class="name nameO">
@@ -22,7 +23,7 @@
     <text>第三名</text>
     <text>关联家长：1</text>
   </view>
-  <view class="tips">
+  <!-- <view class="tips">
     <text>距离上一名还差20积分</text>
   </view> -->
   
@@ -44,8 +45,8 @@
         <view class="item_jf">
           <text>{{item.integral}}</text>
           <text>关联家长：{{item.reancyNum}}</text>
-        
+        </view>
       </view>
-    </view>
+    </block>
   </view>
 </view>

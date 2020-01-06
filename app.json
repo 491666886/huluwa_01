@@ -23,7 +23,6 @@
     "pages/handset/replacePhone/replacePhoneNet",
     "pages/gourd/gourdIndex/gourdIndex",
     "pages/handset/examine/examine",
-    
     "pages/logs/logs"
   ],
   "window": {
