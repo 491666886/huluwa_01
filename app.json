@@ -1,6 +1,5 @@
 {
   "pages": [
-   
     "pages/index/index",
     "pages/My/collect/collect",
     "pages/My/basicInfo/basicInfo",
@@ -8,6 +7,7 @@
     "pages/nav/moment/moment",
     "pages/nav/focus/focus",
     "pages/nav/videodetail/videodetail",
+    "pages/nav/common/common",
     "pages/handset/wsInfo/wsInfo",
     "pages/handset/verify/verify",
     "pages/handset/reviseName/reviseName",
@@ -60,6 +60,6 @@
       }
     ]
   },
-  "style": "v2",
+  
   "sitemapLocation": "sitemap.json"
 }

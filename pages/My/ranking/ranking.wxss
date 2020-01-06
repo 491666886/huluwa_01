@@ -19,7 +19,9 @@
   width: 24rpx;
   height: 28rpx;
 }
-
+.color{
+  color: black!important;
+}
 
 .head{
   position: relative;

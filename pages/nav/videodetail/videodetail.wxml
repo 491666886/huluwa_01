@@ -1,7 +1,7 @@
 <view>
 <view class="head">
   <view class="video">
-    <video bindplay='startPlaying' src="http://10.150.27.90:10000/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
+    <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
   </view>
   <view class="broadcast_info">
   <image class="play" src="/images/play.png"></image>
@@ -21,7 +21,7 @@
   <text class="text">{{video.title}}</text>
   </view>
   <view class="detail">
-   <text class="text">这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的 标准，目的是通过课程改革，促进美术教育在我国基础教育体系。 这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的 标准，目的是通过课程改革，促进美术教育在我国基础教育体系。</text>
+   <text class="text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</text>
    </view>
 </view>
 </view>

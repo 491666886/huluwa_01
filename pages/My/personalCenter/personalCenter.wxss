@@ -45,10 +45,12 @@
   color: #fff;
 }
 .invite111{
+   width: 150rpx;
+   height: 40rpx;
+   padding-left: 0;
+   padding-right: 0;
+   text-align: center;
   background-color: transparent;
-  font-size: 24rpx;
-  padding: 0;
-  overflow: visible;
   margin-right: 0;
 }
 button::after{

@@ -10,7 +10,7 @@ Page({
     objectArray: [
       {
         id: 0,
-        name: '张浩月'
+        name: '张欣源'
       },
       {
         id: 1,

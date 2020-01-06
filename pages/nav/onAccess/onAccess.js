@@ -12,7 +12,8 @@ Page({
       classname: '3年2班',
       watchnum: '25',
       curriculum: '美术课',
-      people: '31/32'
+      people: '31/32',
+      teacher:'张兰'
 
     },
     dynamicList: '1234',

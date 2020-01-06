@@ -1,7 +1,7 @@
 <view>
 <view class="head">
   <view class="video">
-    <video src="https://v-cdn.zjol.com.cn/280443.mp4"></video>
+    <video src="https://hulu.ehualu.com:2443/videos/tmpvideo1.mp4"></video>
   </view>
   <view class="detail">
     <view class="title">

@@ -65,6 +65,7 @@ Page({
   swichNav: function (event) {
     console.log(this.data.videoCot)
     var idx = event.currentTarget.dataset.current
+    console.log(idx)
     this.navOt(idx)
     this.setData({
       currentTab: idx,

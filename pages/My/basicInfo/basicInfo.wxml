@@ -3,14 +3,14 @@
     <view class="item">
       <text class="item_l">头像</text>
       <view class="item_r">
-        <image src="/images/login.png" class="user_img"></image>
+        <image src="/images/zhy3.jpg" class="user_img"></image>
         <image src="/images/more.png" class="more"></image>
       </view>
     </view>
     <view class="item" bindtap="xgname">
       <text class="item_l">昵称</text>
       <view class="item_r">
-        <text>张浩月</text>
+        <text>张欣源</text>
         <image src="/images/more.png" class="more"></image>
       </view>
     </view>

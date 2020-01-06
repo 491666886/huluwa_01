@@ -9,87 +9,89 @@ Page({
     list1:[
       {
         integral:900,
-        reancyNum:28,
+        reancyNum:5,
         name:'张浩月',
-        babyImg:'/images/login.png'
+        babyImg:'/images/zhy1.jpg'
       },
       {
         integral: 895,
-        reancyNum: 22,
+        reancyNum: 2,
         name: '李嘉祺',
-        babyImg: '/images/cfa.jpg'
+        babyImg: '/images/zhy2.jpg'
       },
       {
         integral: 780,
-        reancyNum: 21,
+        reancyNum: 1,
         name: '张欣源',
-        babyImg: '/images/examine.png'
+        color:'#FEF3E8',
+        babyImg: '/images/zhy3.jpg'
       },
       {
         integral: 770,
-        reancyNum: 25,
+        reancyNum: 5,
         name: '李元杰',
-        babyImg: '/images/cs.jpg'
+        babyImg: '/images/zhy4.jpg'
       },
       {
         integral: 680,
-        reancyNum: 18,
+        reancyNum: 3,
         name: '张可强',
-        babyImg: '/images/icon06.png'
+        babyImg: '/images/zhy5.jpg'
       },
       {
         integral: 530,
-        reancyNum: 16,
+        reancyNum: 5,
         name: '王思浩',
-        babyImg: '/images/icon08.png'
+        babyImg: '/images/zhy6.jpg'
       }
     ],
     list2: [
       {
         integral: 1020,
-        reancyNum: 36,
+        reancyNum: 6,
         name: '张浩月',
-        babyImg: '/images/login.png'
+        babyImg: '/images/zhy1.jpg'
       },
       {
         integral: 960,
-        reancyNum: 26,
+        reancyNum: 2,
         name: '王思浩',
-        babyImg: '/images/examine.png'
+        babyImg: '/images/zhy2.jpg'
       },
       {
-        integral: 950,
-        reancyNum: 24,
-        name: '李柏克',
-        babyImg: '/images/cfa.jpg'
+        integral: 780,
+        reancyNum: 1,
+        name: '张欣源',
+        color: '#FEF3E8',
+        babyImg: '/images/zhy3.jpg'
       },
       {
         integral: 860,
-        reancyNum: 45,
+        reancyNum: 5,
         name: '黄蛰桥',
-        babyImg: '/images/cs.jpg'
+        babyImg: '/images/zhy4.jpg'
       },
       {
         integral: 660,
-        reancyNum: 19,
+        reancyNum: 1,
         name: '黄浩丞',
-        babyImg: '/images/icon06.png'
+        babyImg: '/images/zhy5.jpg'
       },
       {
         integral: 530,
-        reancyNum: 18,
+        reancyNum: 1,
         name: '黄浩丞',
-        babyImg: '/images/icon08.png'
+        babyImg: '/images/zhy6.jpg'
       },
       {
         integral: 490,
-        reancyNum: 12,
+        reancyNum: 2,
         name: '曹卜洵',
         babyImg: '/images/icon09.png'
       },
       {
         integral: 400,
-        reancyNum: 10,
+        reancyNum: 5,
         name: '李浩逸',
         babyImg: '/images/icon03.png'
       }

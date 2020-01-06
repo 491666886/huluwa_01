@@ -103,3 +103,8 @@
   font-size: 24rpx;
   color: #999999;
 }
+.img{
+width: 750rpx;
+  height: 1240rpx;
+
+}
