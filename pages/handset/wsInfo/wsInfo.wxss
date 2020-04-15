@@ -43,3 +43,13 @@ picker{
 .active{
   color: #222;
 }
+.user_img view{
+  color: #666;
+  font-size: 32rpx;
+}
+.user_img image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  /* margin-left: auto; */
+}

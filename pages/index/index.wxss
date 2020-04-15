@@ -1,13 +1,28 @@
-
 .head{
-  border-bottom: 10rpx solid #F7F8FA;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 20;
+  box-shadow: gainsboro 0px 0px 5px 0px ;
+  border-bottom: 5rpx solid #F7F8FA;
 }
+/* .head{
+  position: fixed;
+  background-color: white;
+  z-index: 20;
+  box-shadow: gainsboro 0px 0px 5px 0px ;
+  border-bottom: 5rpx solid #F7F8FA;
+} */
+
+
 .head_title{
-  padding: 30rpx 20rpx; 
+  padding: 30rpx 20rpx;
   font-weight:bold;
   font-size: 34rpx;
 }
 .head_list{
+  display: flex;
+  justify-content: space-around;
   overflow: hidden;
 }
 .hd_item{
@@ -16,6 +31,7 @@
   font-size: 16rpx;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   align-items: center;
   margin-bottom: 10rpx;
@@ -84,4 +100,35 @@
 }
 .dynamic_cot{
   padding: 0 20rpx;
+}
+.dynamic{
+  position: relative;
+  top: 300rpx;
+  left: 0rpx
+}
+
+
+/* 三角 */
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  opacity: 0.7;
+  border-top: 70rpx solid black;
+  border-right: 70rpx solid transparent;
+}
+.sanJ image{
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  width: 45%;
+  height: 45%;
+}
+.sanJ{
+  z-index: 2;
+  width: 30%;
+  height: 35%;
+  position: absolute;
+  top: 0;
+  border-radius: 6rpx 0rpx 0 0rpx;
+  overflow: hidden
 }

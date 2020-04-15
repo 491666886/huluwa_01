@@ -1,12 +1,17 @@
 <view>
   <view class="list">
+    <view class="user_img">
+      <text>学生头像</text>
+      <view bindtap='chooseImage' wx-if='{{isImg}}'>选择头像</view>
+      <image bindtap='chooseImage' src="{{imgUrl}}" wx-else></image>
+    </view>
     <view>
       <text>学生姓名</text>
       <input placeholder="姓名" bindinput='name'></input>
     </view>
     <view>
       <text>学生性别</text>
-      <picker bindchange="bindPickerChange" value="{{index}}" range-key='name' range="{{objectArray}}">
+      <picker bindchange="bindPickerChange" value="{{name}}" range-key='name' range="{{objectArray}}">
         <view class="picker {{sex == '请选择'?'':'active'}}">
         <!-- {{currentTab==1?'active':''}} -->
           {{sex}}
@@ -30,7 +35,10 @@
       <input placeholder="请输入身份证号" bindinput="card"></input>
     </view>
   </view>
-  <view class="next" bindtap="next">
+  <!-- <view class="next" bindtap="next" @tap="doubleTap" @touchstart="touchStart" @touchend="touchEnd"
+    确定
+  </view> -->
+  <view class="next" bindtap="doubleTap" bindtouchstart="touchStart" bindtouchend="touchEnd">
     确定
   </view>
 </view>

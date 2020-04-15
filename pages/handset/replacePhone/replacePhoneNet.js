@@ -36,7 +36,6 @@ Page({
         }
       }, 1000)
     }
-    console.log(timeNum)
   },
 
   /**

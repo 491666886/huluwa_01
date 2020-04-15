@@ -1,0 +1,17 @@
+<view class="box">
+  <view class="head">
+    <view>输入验证码</view>
+    <view>短信验证码已发送至您的手机</view>
+  </view>
+  <view class="cot">
+    <input bindinput='code' placeholder='请输入验证码' placeholder-style='color:#E19933' value='{{code}}'></input>
+    <text class="getcode" bindtap="getCode">{{getmsg}}</text>
+  </view>
+  <view class="login" bindtap="login">登陆</view>
+  <!-- <view class="footer">
+    <switch checked type='checkbox' color='#FE8737' bindchange='switchChange'></switch>
+    <view>
+      我已阅读并同意 <text>《用户协议》</text> 及 <text>《隐私政策》</text>
+    </view>
+  </view> -->
+</view>

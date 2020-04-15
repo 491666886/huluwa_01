@@ -11,11 +11,11 @@ Page({
     sex:'请选择',
     objectArray: [
       {
-        id: 0,
+        id: 1,
         name: '男'
       },
       {
-        id: 1,
+        id: 2,
         name: '女'
       }
     ],
@@ -23,7 +23,66 @@ Page({
     school:'',
     Njgrade: '',
     Bjgrade: '',
-    card:''
+    card:'',
+    isImg: true,
+    imgUrl:'',
+    touchStartTime: 0, // 触摸开始时间
+    touchEndTime: 0, // 触摸结束时间
+    lastTapTime: 0 // 最后一次单击事件点击发生时间
+  },
+  // 防止重复点击
+  touchStart(e) {
+    this.touchStartTime = e.timeStamp;
+  },
+  touchEnd(e) {
+    this.touchEndTime = e.timeStamp;
+  },
+  doubleTap(e) {
+    var vm = this;
+    // 控制点击事件在350ms内触发，加这层判断是为了防止长按时会触发点击事件
+    if (vm.touchEndTime - vm.touchStartTime < 350) {
+      // 当前点击的时间
+      var currentTime = e.timeStamp;
+      var lastTapTime = vm.lastTapTime;
+      // 更新最后一次点击时间
+      vm.lastTapTime = currentTime;
+      // 如果两次点击时间在300毫秒内，则认为是双击事件
+      if (currentTime - lastTapTime > 300) {
+        // do something 点击事件具体执行那个业务
+        vm.next()
+      }
+    }
+  },
+  
+  // 选择头像
+  chooseImage(){
+    let _this = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        _this.setData({
+          isImg:false,
+          imgUrl: tempFilePaths[0]
+        })
+        //将本地资源上传到服务器，客户端发起一个htpps post 请求，
+        wx.uploadFile({
+          url: app.globalData.src + '/gourdbaby/child/uploadChildImgftaction.action', 
+          filePath: tempFilePaths[0],
+          name: 'childImg',
+          success: function (res) {
+            var data = res.data
+            _this.setData({
+              postImg: JSON.parse(res.data).resultData.picUrl
+            })
+          }
+        })
+
+      }
+    })
   },
   name: function (e) {
     this.setData({
@@ -51,42 +110,43 @@ Page({
     })
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    console.log()
     var sex = this.data.objectArray[e.detail.value].name
+    var sexId = this.data.objectArray[e.detail.value].id
     this.setData({
       index: e.detail.value,
-      sex: sex
+      sex: sex,
+      sexId: sexId
     })
   },
   next(){
     var name = this.data.name,
-      sex = this.data.sex,
+      sex = this.data.sexId,
       school = this.data.school,
       gradeB = this.data.Bjgrade,
       gradeN = this.data.Njgrade,
-      card = this.data.card
-    
-    if (name && sex != "请选择" && school && gradeN && gradeB && card){
-      console.log(name)
-      console.log(sex)
-      console.log(school)
-      console.log(gradeN)
-      console.log(gradeB)
-      console.log(card)
-      util.get(app.globalData.src + '/gourdbaby/gourdChildUser/insertUserInfo.action', {
+      card = this.data.card,
+      img = this.data.imgUrl,
+      postImg = this.data.postImg
+    if (name && sex != "请选择" && school && gradeN && gradeB && card && img){
+      util.get(app.globalData.src + '/gourdbaby/child/insertChild.action', {
+        userId: wx.getStorageSync("userId"),
         childName: name, 
-        sex: sex, 
-        school: school, 
-        classId: gradeN,
-        gradeId: gradeB,
+        childSex: sex, 
+        schoolId: school, 
+        grade: gradeN,
+        classId: gradeB,
         childCard: card,
-        phone:652112213
+        childImg: postImg
       }).then( res =>{
-        console.log(res)
-        if(res.data.status == 200){
-          wx.reLaunch({
-            url: '../../index/index',
+        if (res.data.resultCode == 200){
+          wx.navigateTo({
+            url: '/pages/handset/examine/examine',
+          })
+        }else{
+          wx.showToast({
+            title: '添加失败，请重新填写',
+            icon: 'none',
+            duration: 2000
           })
         }
       })

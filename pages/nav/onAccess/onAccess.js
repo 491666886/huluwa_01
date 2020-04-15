@@ -34,34 +34,24 @@ Page({
   },
   gxList() {
     let _this = this;
-    console.log(app.globalData.src);
     util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoByChildCard.action', {
       childCard: 2,
       pageNo: 1,
       pageSize: 10,
     }).then(function(res) {
-      // console.log(res.data.t)
       if (res.data.status == 200) {
-        const list = res.data.t;
-        list.forEach(({
-          createTime
-        }) => {
-          var sdate = new Date(createTime.replace(/-/g, "/"));　　
-          var now = new Date();　　
-          var days = now.getTime() - sdate.getTime();　　
-          var day = parseInt(days / (1000 * 60 * 60 * 24));
-          let array = [];
-          list.map((item, index) => {
-            array.push(
-              Object.assign({}, item, {
-                retime: 7 - day //视频剩余时间计算结果
-              })
-            )
-          });
-          _this.setData({
-            dynamicList: array
-          })
-        });
+
+        let time = res.data.t.map(item => {
+          return util.nowTime(item.videoDuration)
+        })
+        let arr2 = res.data.t.map(item => {
+          return item.createTime.split(' ')[0];
+        })
+        _this.setData({
+          dynamicList: res.data.t,
+          time: time,
+          arr2: arr2
+        })
 
       }
     })

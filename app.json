@@ -2,7 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    
+    "pages/handset/babyInfo/babyInfo",
+    "pages/handset/babyItemInfo/babyItemInfo",
+    "pages/My/myMoney/myMoney",
+    "pages/My/collectCeshi/collectCeshi",
+    "pages/passwordLogin/passwordLogin",
+    "pages/loginIns/phoneLogin/phoneLogin",
+    "pages/loginIns/retrievePassword/retrievePassword",
+    "pages/loginIns/codeLogin/codeLogin",
     "pages/My/collect/collect",
     "pages/My/basicInfo/basicInfo",
     "pages/nav/onAccess/onAccess",
@@ -23,7 +30,14 @@
     "pages/handset/replacePhone/replacePhoneNet",
     "pages/gourd/gourdIndex/gourdIndex",
     "pages/handset/examine/examine",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/deal/deal",
+    "pages/deal/police",
+    "pages/nav/videoShear/videoShear",
+    "pages/cropper/croper",
+    "pages/nav/blueSave/blueSave",
+    "pages/nav/wateVdetail/wateVdetail",
+    "pages/nav/sharerDetail/sharerDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,12 +56,6 @@
         "selectedIconPath": "images/icon_bottom01_y.png"
       },
       {
-        "pagePath": "pages/gourd/gourdIndex/gourdIndex",
-        "text": "葫芦",
-        "iconPath": "images/icon_bottom02.png",
-        "selectedIconPath": "images/icon_bottom02_y.png"
-      },
-      {
         "pagePath": "pages/watering/wateringIndex/wateringIndex",
         "text": "浇水",
         "iconPath": "images/icon_bottom03.png",
@@ -61,6 +69,6 @@
       }
     ]
   },
-  
+  "usingComponents": {},
   "sitemapLocation": "sitemap.json"
 }

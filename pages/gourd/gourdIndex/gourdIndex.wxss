@@ -3,10 +3,20 @@ page{
   height: 100%;
 
 }
+.wai{
+  width:100fr;
+  height: 100fr;
+  overflow: hidden 
+}
 view{
   height: 100%;
 }
 image{
   width: 750rpx;
   height: 100%;
+}
+.iii{
+  height: 1000rpx;
+  width: 100rpx;
+  background-color: rebeccapurple;
 }

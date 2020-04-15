@@ -108,3 +108,9 @@ width: 750rpx;
   height: 1240rpx;
 
 }
+.notObj{
+  font-size: 40rpx;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 60rpx;
+}

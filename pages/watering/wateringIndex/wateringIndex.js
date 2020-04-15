@@ -4,18 +4,17 @@ const app = getApp()
 const util = require('../../../utils/util')
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     twoTab: 0,
-    currentTab: 1,
+    currentTab: 2,
     navbar: [
-      {
-        sot: '热门排行榜',
-        id:1
-      },
+      // {
+      //   sot: '热门排行榜',
+      //   id:1
+      // },
       {
         sot: '幼儿读物',
         id: 2
@@ -24,14 +23,14 @@ Page({
         sot: '育儿助手',
         id: 3
       },
-      {
-        sot: '购物商城',
-        id: 4
-      },
-      {
-        sot: '关注',
-        id: 5
-      }
+      // {
+      //   sot: '购物商城',
+      //   id: 4
+      // },
+      // {
+      //   sot: '关注',
+      //   id: 5
+      // }
     ],
     twoList:[
       {
@@ -47,25 +46,53 @@ Page({
         id: 3,
       }
     ],
-    listCot:['1','2','3']
+    listCot:[],
+    inputVal:''
   },
+
+
   videoId: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: "/pages/nav/videodetail/videodetail",
-      success: function (res) {
-        // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      url: "/pages/nav/wateVdetail/wateVdetail?data=" + id,
+      // success: function (res) {
+      //   // 通过eventChannel向被打开页面传送数据
+      //   res.eventChannel.emit('acceptDataFromOpenerPage', {  })
+      // }
+    })
+  },
+  searchVal(){
+    let _this = this
+    util.post(app.globalData.src + '/gourdbaby/gourdChildUser/searchVideoftaction.action', {
+      pageNo: '1', //当前页数
+      pageSize: '5', //每页条数
+      searchTitle: this.data.inputVal,   //搜索关键字
+      category: this.data.videoCot,   //标签
+      childCard:'', //孩子身份证
+      isCollect: 0   //是否收藏
+    }).then(res => {
+      if (res.data.resultCode == '200'){
+        _this.setData({
+          listCot: res.data.resultData
+        })
+      } else if (res.data.resultCode == '204'){
+        wx.showToast({
+          title: '暂无数据',
+          icon: 'none'
+        })
+        _this.setData({
+          listCot: []
+        })
       }
     })
   },
   watchIpt(e){
-    console.log(e.detail.value)
+    this.setData({
+      inputVal: e.detail.value
+    })
   },
   swichNav: function (event) {
-    console.log(this.data.videoCot)
     var idx = event.currentTarget.dataset.current
-    console.log(idx)
     this.navOt(idx)
     this.setData({
       currentTab: idx,
@@ -96,7 +123,6 @@ Page({
           _this.setData({
             twoList: res.data.t
           })
-          console.log(res.data.t.length)
           if(res.data.t.length > 0){
             _this.setData({
               videoCot: res.data.t[0].categrayName
@@ -104,7 +130,6 @@ Page({
             _this.cotList(_this.data.videoCot)
             _this.cotList(_this.data.videoCot)
           }else{
-            console.log('2222222222')
             _this.setData({
               videoCot: ''
             })
@@ -128,26 +153,58 @@ Page({
       },
       success(res) {
         let time = res.data.t.map(item => {
-          console.log(item)
           return util.nowTime(item.videoDuration) })
-        console.log(time)
+        let arr2 = res.data.t.map(item => {
+          return item.createTime.split(' ')[0];
+        })
         if (res.data.status == 200) {
           _this.setData({
             listCot: res.data.t,
-            time: time
+            time: time,
+            arr2: arr2
           })
         }
       }
     })
   },
+
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    //写接口
+
+    //模拟加载
+    setTimeout(function () {
+      wx.showToast({
+        title: '已经是最新啦~',
+        icon: 'none'
+      });
+      // complete
+      //必须停止
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1000);
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    wx.showToast({
+      title: '上拉加载了...',
+      icon: 'none'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.navOt(1)
+    this.navOt(2)
     this.cotList(this.data.videoCot)
-    console.log(this.data.videoCot)
-    console.log(util.nowTime(100))
   },
 
   /**
@@ -161,7 +218,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // this.onLoad()
   },
 
   /**
@@ -178,19 +235,6 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享

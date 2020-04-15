@@ -6,8 +6,9 @@
   <view class="detail">
     <view class="title">
       <text class="classname">{{video.classname}} </text>
-      <text class="watchnum">{{video.watchnum}}人 </text>
-      <image class="icon" src="/images/icon11.png"></image>
+      <!-- 观看人数，暂时隐藏 -->
+      <!-- <text class="watchnum">{{video.watchnum}}人 </text>
+      <image class="icon" src="/images/icon11.png"></image> -->
     </view>
     <text class="banner">课程：{{video.curriculum}} </text>
       <text class="banner">出勤人数：{{video.people}} </text>
@@ -23,14 +24,14 @@
         <view class="dynamic_item"  data-id="{{item.videoId}}"  bindtap="videoId">
           <view class="dynamic_item_lt">
             <image src="{{item.image}}"></image>
-            <text>{{item.videoDuration}}</text>
+            <text>{{time[index]}}</text>
           </view>
           <view class="dynamic_item_rt">
             <text class="video_name">{{item.title}}</text>
             <view>
               <view class="broadcast_sort">{{item.category}}</view>
               <view class="broadcast_info">
-                <text class="time">{{item.createTime}}</text>
+                <text class="time">{{arr2[index]}}</text>
                 <image src="/images/play.png"></image>
                 <text class="broadcast_num">{{item.count}}</text>
               </view>

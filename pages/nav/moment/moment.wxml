@@ -1,21 +1,27 @@
 <!--pages/nav/moment/moment.wxml-->
-<view class="warning">
+<!-- <view class="warning">
   <icon type="warn" size="25rpx" color="#E98C2B" class="icon"></icon>
   <text>视频在删除前会显示剩余天数，之后将永久删除</text>
-</view>
-
-
+</view> -->
  <block wx:for='{{dynamicList}}' wx:key='id'>
  <view class="moment" data-id="{{item.videoId}}" bindtap="videoId">
-  <image class="img" src="{{item.image}}"></image>
+   <!-- 三角  -->
+  <view class="sanJ" wx-if="{{item.isSave}}">
+    <!--  wx:if='{{isSave}}' -->
+    <view class="triangle-topleft"></view>
+    <!-- <image class="icon" src="/images/save.png"></image> -->
+    <image class="icon" src="/images/videoCall/pan.png"></image> 
+  </view>
+  <image class="img" src="{{item.videoImg}}"></image>
   <image class="play" src="/images/moment.png"></image>
-  <text class="title">{{item.title}}</text>
+  <text class="title">{{item.videoTitle}}</text>
   
   <view class="broadcast_info">
-    <text class="time">{{item.createTime}}</text>
+    <text class="time">{{arr2[index]}}</text>
     <image src="/images/play.png"></image>
-    <text class="broadcast_num"> {{item.count}}</text>
-     <text class="broadcast_day">{{item.retime}} 天</text>
+    <text class="broadcast_num"> {{item.countNum}}</text>
+     <!-- <text class="broadcast_day">{{item.retime}} 天</text> -->
+     <text class="broadcast_day">{{item.effectDays +1}} 天</text>
   </view>
   </view>
 </block>

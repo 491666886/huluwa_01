@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "焦点人物"
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "焦点人物",
+    "backgroundTextStyle": "dark"
 }

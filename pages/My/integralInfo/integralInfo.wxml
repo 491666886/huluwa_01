@@ -6,14 +6,16 @@
     <image src="/images/more.png"></image>
   </view>
   <view class="list">
-    <block wx:for="{{list}}" wx:key='id'>
+    <!-- <block wx:for="{{list}}" wx:key='id'>
       <view class="item">
         <view class="item_l">
-          <image src="/images/login.png"></image>
+          ---------备注-----<image src="/images/login.png"></image>
+      <image wx:if='{{!img}}' src="/images/login.png"></image>
+      <image wx:if='{{img}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{img}}"></image>
           <text>{{item.name}}</text>
         </view>
         <view class="item_r">+{{item.num}}</view>
       </view>
-    </block>
+    </block> -->
   </view>
 </view>

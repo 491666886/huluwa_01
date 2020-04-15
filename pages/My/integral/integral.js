@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    img:''
   },
   jfDetailed() {
     wx.navigateTo({
@@ -20,7 +21,6 @@ Page({
       {
         
       }).then(res =>{
-        console.log(res.data.t)
         if(res.data.status == 200){
           _this.setData({
             list: res.data.t
@@ -28,11 +28,20 @@ Page({
         }
       })
   },
+  goMoney(){
+    wx.showToast({
+      title: '功能开发中~',
+      icon: 'none'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.task()
+    this.setData({
+      img: wx.getStorageSync('childImg')
+    })
   },
 
   /**

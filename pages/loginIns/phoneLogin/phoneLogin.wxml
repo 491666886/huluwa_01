@@ -1,0 +1,12 @@
+<view class="box">
+  <view class="title">手机号登陆</view>
+  <input type='number' maxlength='11' bindinput='number' placeholder='请输入您的手机号' placeholder-style='color:#E19933' value='{{number}}'></input>
+  <view class="login" bindtap="getCode">获取验证码</view>
+  <!-- <view class="login" bindtap="paswordLogin">密码登录</view> -->
+  <!-- <view class="footer">
+    <switch checked type='checkbox' color='#FE8737' bindchange='switchChange'></switch>
+    <view>
+      我已阅读并同意 <text>《用户协议》</text> 及 <text>《隐私政策》</text>
+    </view>
+  </view> -->
+</view>

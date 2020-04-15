@@ -7,16 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name:''
   },
   codRow() {
     let _this = this
-    util.post(app.globalData.src + '/gourdbaby/gourdChildUser/updateNiKeName.action', {
-      userName: _this.data.name,
-      phone:333
+    util.post(app.globalData.src + '/gourdbaby/userInfo/editUserNickNameftaction.action', {
+      userId: wx.getStorageSync('userId'),
+      userNickName: _this.data.name
     }).then(function (res) {
-      console.log(res)
       if (res.data.resultCode == 200){
+        wx.removeStorageSync('nickName');
+        wx.setStorageSync('nickName', _this.data.name);
         wx.showToast({
           title: '修改成功',
           icon: 'success',
@@ -36,7 +37,6 @@ Page({
     })
   },
   nameIpt (e) {
-    console.log(e.detail.value)
     this.setData({
       name: e.detail.value
     })

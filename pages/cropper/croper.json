@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "剪辑图片",
+  "usingComponents": {
+    "cropper": "/pages/cropper/croper"
+  },
+  "disableScroll": true
+}

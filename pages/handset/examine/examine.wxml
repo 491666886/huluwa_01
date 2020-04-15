@@ -2,5 +2,5 @@
   <image src="/images/examine.png"></image>
   <text>审核中</text>
   <view class="shsj">审核时长为一个工作日，请稍后...</view>
-  <view class="toIndex">返回首页</view>
+  <view class="toIndex" bindtap="toIndex">返回首页</view>
 </view>

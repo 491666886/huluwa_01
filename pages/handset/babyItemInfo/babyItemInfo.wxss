@@ -1,0 +1,92 @@
+
+.list{
+  margin: 30rpx 0 60rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+}
+.list view{
+  height: 90rpx;
+  display: flex;
+  border-bottom: 1px solid #E5E5E5;
+  align-items: center;
+  font-size: 32rpx;
+}
+.list view:last-child{
+  border-bottom: none;
+}
+.item text{
+  width: 210rpx;
+  color: #222;
+  margin-right: 40rpx;
+}
+.item view{
+  font-size: 28rpx;
+  color: #333;
+}
+/* .imgRa{
+  margin-left: 150rpx
+} */
+.bady_img{
+  height: 85rpx;
+  width: 85rpx;
+  border-radius: 50%;
+  border-width: 2rpx;
+  border-style: solid;
+  border-color: gainsboro;
+  overflow: hidden;
+}
+
+.textCen{
+  text-align: center
+}
+
+
+
+/* --------------------剪切视频的  css----------------------------- */
+
+page {
+  min-height: auto;
+  height: auto;
+}
+
+.cropper-wrapper {
+  background: #fff;
+}
+
+.getCropperImage {
+  text-align: center;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  width: 750rpx;
+  padding: 40 0rpx;
+  background: #000;
+  z-index: 9999;
+  color: #fff;
+  align-items: center;
+}
+
+.getCropperImage > view {
+  padding: 0 40rpx;
+  height: 60px;
+  line-height: 60px;
+}
+
+.cropper-wrapper-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(0, 0, 0);
+  z-index: 22;
+}
+
+.rotate {
+  width: 44rpx;
+  height: 44rpx;
+}

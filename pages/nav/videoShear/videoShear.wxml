@@ -1,0 +1,126 @@
+<view class="w">
+
+  <!-- 提示 -->
+  <view class="hint" wx-if="{{hint}}">
+    <view class="hintHead"></view>
+    <view class="hinContent">
+      <image src="/images/videoCall/hintBack.png"></image>
+      <view class="hintText">
+        <view class="hintD">
+          {{hintText}}
+          <!-- 剪辑视频时间已上传，请耐心等待返回结果。 -->
+        </view>
+      </view>
+      <view class="hintButtom" bindtap="hintButtom">
+        <text>我知道了</text>
+      </view>
+    </view>
+  </view>
+
+ <!-- 确认框 -->
+ <view class="hint" wx-if="{{affirm}}">
+    <view class="hintHead"></view>
+    <view class="hinContent">
+      <image src="/images/videoCall/hintBack.png"></image>
+      <view class="hintTextD">
+        <view class="hintDA">
+          <!-- {{affirmText}} -->
+          <view>您剪辑的视频已完成</view>
+          <view class="indexxx">已为您保存至<text class="bule">蓝光视频</text></view>
+        </view>
+      </view>
+      <view class="hintButtomS" >
+         <view class="hintButtomSA" bindtap="hintButtomSA">
+            <text>立即前往</text>
+         </view>
+         <view class="hintButtomSB" bindtap="hintButtomSB">
+            <text>我知道了</text>
+         </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="warning">
+    <icon type="warn" size="25rpx" color="#E98C2B" class="iconIn"></icon>
+    <text>视频在删除前会显示剩余天数，之后将永久删除</text>
+  </view> -->
+
+  <view class="head">
+    <view class="video">
+      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
+    </view>
+    <view class="broadcast_info">
+      <image class="play" src="/images/play.png"></image>
+      <text class="broadcast_num"> {{videoCount}} </text>
+      <text class="time"> {{createTime}}</text>
+      <text >还剩{{video.effectDays + 1}}天</text>
+      <!-- <text class="broadcast_day" wx-if='{{video.effectDays != -1 && video.effectDays != 0}}'>剩余时间{{video.effectDays + 1}}天</text>
+     <text class="broadcast_day" wx-if='{{video.effectDays == 0}}'>剩余时间1天</text> -->
+      <!-- 收藏的图片 -->
+      <!-- 取消收藏的图片 -->
+      <!-- <image bindtap="collectIn" wx:if='{{!collectShow}}' class="icon" src="/images/uncollect.png"></image> -->
+      <!-- 收藏的图片 -->
+      <!-- <image bindtap="collectIn" wx:if='{{collectShow}}' class="icon" src="/images/collect.png"></image> -->
+
+      <!-- <image class="icon" bindtap="huluClid" src="/images/save.png"></image> -->
+      <!-- <button plain='true'open-type='share' hover-class='none' style="background-image:url('/images/share.png');" class="fx_share"></button> -->
+
+      <!-- <button plain='true' open-type='share' hover-class='none' class="fx_share"></button> -->
+      <!-- 剪刀 -->
+      <!-- <image class="icon" bindtap="shear" src="/images/videoCall/jq.png"></image> -->
+
+      <!-- <image class="icon"  src="/images/share.png"></image> -->
+    </view>
+
+    <view class="warning" wx-if='{{video.effectDays != -1 && video.effectDays != 0}}'>
+      <icon type="warn" size="35rpx" color="#E98C2B" class="iconIn"></icon>
+      <text>您可选择您喜欢并想保存的视频片段，系统为您自动截取。</text>
+      <!-- <text>视频<text class="day">{{video.effectDays + 1}}</text>天后将被删除,您可<text class="day">剪切部分</text>或者<text class="day">永久保存</text>该视频。</text> -->
+    </view>
+
+    <view class="title">
+      <text class="text">{{video.title}}</text>
+    </view>
+    <!-- <view class="detail">
+      <view class="ms"><text class="xiao">小一班美术课</text></view>
+      <view class="de_text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</view>
+      <view class="de_text">这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的标准，目的是通过课程改革，促进美术教育在我国基础教育体系。  </view>
+   </view> -->
+
+
+  </view>
+  <!-- 视频的截取版块 -->
+  <view class="videoButtom">
+    <view class="point">
+      <image src="/images/videoCall/sho.png"></image>
+    </view>
+<!-- 开始时间和结束时间 -->
+    <view class="starT">
+      <image src="/images/videoCall/videoStar.png"></image>
+      <text class="starTime">开始时间</text>
+      <input class="styleInput" value='{{searchText}}' type="idcard" placeholder="时" bindinput="startHour"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" value='{{searchText}}' type="idcard" placeholder="分" bindinput="startMinute"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" value='{{searchText}}' type="idcard" placeholder="秒" bindinput="startSecond"/>
+    </view>
+    <view class="starT">
+    <image src="/images/videoCall/videoEnd.png"></image>
+      <text class="starTime">结束时间</text>
+      <input class="styleInput" value='{{hour}}' type="idcard" placeholder="时" bindinput="endHour"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" value='{{Minute}}' type="idcard" placeholder="分" bindinput="endMinute"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" value='{{second}}' type="idcard" placeholder="秒" bindinput="endSecond"/>
+    </view>
+    <view class="starT">
+      <image src="/images/videoCall/updateName.png"></image>
+      <text class="starTime">取个名字吧</text>
+      <input class="videoName" type="text" placeholder="视频的名称"  bindinput="videoName"/>
+    </view>
+    <view>
+      <button   disabled="{{disabled}}" class="next" bindtap="codRow">确定</button>
+    </view>
+  </view>
+  
+</view>

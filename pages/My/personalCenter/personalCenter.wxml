@@ -1,63 +1,74 @@
 <view>
+  <!-- <image class="addBaby" bindtap="addBaby" src="/images/addBaby.png"></image> -->
   <view class="head">
     <image src="/images/jfbj.png" class="bgi"></image>
     <view class="hd_cot">
-      <image src="/images/zhy3.jpg" class="hd_lt_img" bindtap="userInfo"></image>
+    <!-- 妈妈的照片 -->
+      <image wx:if='{{!userImg}}' src="/images/login.png" class="hd_lt_img" bindtap="userInfo"></image>
+      <image wx:if='{{userImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{userImg}}" class="hd_lt_img" bindtap="userInfo"></image>
+      <view class="sublevel">
+        <!-- 孩子的照片 -->
+        <image wx:if='{{!childImg}}' src="/images/login.png" class="hd_lt_img" bindtap="babyInfo"></image>
+        <image wx:if='{{childImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{childImg}}" bindtap="babyInfo"></image>
+      </view>
+      
+      <!-- Header上 -->
       <view class="hd_rt">
         <view class="hd_rt_t">
-          <text class="user_name">张欣源</text>
-          <!-- <view class="invite">+ 邀请家人</view> -->
-          <button class="invite invite111"  color="block"  hover-class='none' open-type='share'><text>+邀请家人</text></button>
+          <text class="user_name">{{nickName}}</text>
+          <!-- <button class="invite invite111"  color="block"  hover-class='none' open-type='share'><text>+邀请家人</text></button> -->
         </view>
-        <view class="hd_rt_b">
-          <view class="user_money_info">
-            <view>
-              <image src="/images/money.png"></image><text>0</text>
-            </view>
-            <view bindtap="integralClid">
-              <image src="/images/integral.png"></image> 780
-            </view>
-          </view>
-          <!-- 选择孩子、后期接口调用 -->
-          <view class="user_child">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'name'}}">
-              <text>张欣源</text>
-              <image src="/images/icon_x.png"></image>
-            </picker>
-          </view>
+         <!-- 选择孩子-->
+        <view class="user_child" wx-if='{{objectArray.length > 0}}'>
+          
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'childName'}}">
+            <text>{{objectArray[index].childName}}</text>
+              <!-- <text>{{objectArray[0].childName}}</text> -->
+            <image src="/images/icon_x.png" class="bottomImg"></image>
+          </picker>
+          <!-- <view class="breckIm">
+            <image class="imgss" src="/images/login.png"></image>
+          </view> -->
         </view>
       </view>
     </view>
+    <!-- Header下 -->
+     
   </view>
   <view class="list">
+    <!-- <button plain='true' color="block" hover-class='none' open-type='share' class="item">
+      <image class="item_icon" src="/images/my_icon_4.png"></image>
+      <view>邀请家人</view>
+      <image class="icon_more" src="/images/more.png"></image>
+    </button> -->
     <view class="item" bindtap="scCild">
       <image class="item_icon" src="/images/my_icon_1.png"></image>
       <view>我的收藏</view>
       <image class="icon_more" src="/images/more.png"></image>
     </view>
-    <view class="item">
+    <!-- <view class="item"  bindtap="myOrder">
       <image class="item_icon" src="/images/my_icon_2.png"></image>
-      <view>我的订单</view>
+      <view>我的订单(待开发)</view>
       <image class="icon_more" src="/images/more.png"></image>
-    </view>
-    <view class="item">
+    </view> -->
+    <view class="item" bindtap="myMoney">
       <image class="item_icon" src="/images/my_icon_3.png"></image>
       <view>我的钱包</view>
       <image class="icon_more" src="/images/more.png"></image>
     </view>
-    <view class="item">
+    <!-- <view class="item" bindtap="myNews">
       <image class="item_icon" src="/images/my_icon_4.png"></image>
-      <view>消息</view>
+      <view>消息(待开发)</view>
       <image class="icon_more" src="/images/more.png"></image>
-    </view>
-    <view class="item">
+    </view> -->
+    <!-- <view class="item" bindtap="myQuestion">
       <image class="item_icon" src="/images/my_icon_5.png"></image>
-      <view>问题反馈</view>
+      <view>问题反馈(待开发)</view>
       <image class="icon_more" src="/images/more.png"></image>
-    </view>
+    </view> -->
     <view class="item" bindtap="Logout">
       <image class="item_icon" src="/images/my_icon_6.png"></image>
-      <view>退出登录</view>
+      <view>注销</view>
       <image class="icon_more" src="/images/more.png"></image>
     </view>
   </view>

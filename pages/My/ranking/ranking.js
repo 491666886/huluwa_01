@@ -22,7 +22,7 @@ Page({
       {
         integral: 780,
         reancyNum: 1,
-        name: '张欣源',
+        name: '刘小毛',
         color:'#FEF3E8',
         babyImg: '/images/zhy3.jpg'
       },
@@ -61,9 +61,9 @@ Page({
       {
         integral: 780,
         reancyNum: 1,
-        name: '张欣源',
+        name: '刘小毛',
         color: '#FEF3E8',
-        babyImg: '/images/zhy3.jpg'
+        babyImg: '/images/lxm.png'
       },
       {
         integral: 860,
@@ -104,19 +104,15 @@ Page({
     })
   },
   bindDateChange: function (e) {
-    console.log(e.detail.value.split('-'))
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       time: e.detail.value
     })
 
     if (e.detail.value.split('-')[1] % 2 == 0) {
-      console.log('ss')
       this.setData({
         list: this.data.list1
       })
     } else {
-      console.log('eee')
       this.setData({
         list: this.data.list2
       })
@@ -133,20 +129,15 @@ Page({
    */
   onLoad: function (options) {
     var time = util.formatTime(new Date());
-    console.log(time.split('-')[1])
     this.setData({
       time: time
     })
-    console.log(this.data.time)
-    // console.log((time.split('-')[1] % 2 == 0) ? "偶数" : "奇数")
 
     if (time.split('-')[1] % 2 == 0){
-      console.log('ss')
       this.setData({
         list:this.data.list1
       })
     }else{
-      console.log('eee')
       this.setData({
         list: this.data.list2
       })

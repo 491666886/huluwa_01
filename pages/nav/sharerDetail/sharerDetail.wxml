@@ -1,0 +1,23 @@
+<view class="w">
+  <view class="head">
+    <view class="video">
+      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
+    </view>
+    <view class="broadcast_info">
+      <image class="play" src="/images/play.png"></image>
+      <text class="broadcast_num"> {{videoCount}} </text>
+      <text class="time"> {{createTime}}</text>
+    </view>
+
+    <!-- <view class="warning" wx-if='{{isSave != -1 && isSave != 1}}'>
+      <icon type="warn" size="35rpx" color="#E98C2B" class="iconIn"></icon>
+      <text>视频<text class="day">{{video.effectDays + 1}}</text>天后将被删除,您可<text class="day">剪切部分</text>或者<text class="day">永久保存</text>该视频。</text>
+    </view> -->
+
+    <view class="detail">
+      <view class="ms"><text class="xiao">{{video.videoTitle}}</text></view>
+      <view class="de_text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</view>
+   </view>
+  </view>
+
+</view>

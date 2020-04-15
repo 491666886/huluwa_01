@@ -8,37 +8,152 @@ Page({
    */
   data: {
     video:'',
-    collectShow: true
+    videoCount:0,
+    collectShow: false,  //收藏图片的展示和消失
+    title:'',
+    id : 0,
+    vid: 0,
+    isSave :0,
+    isShare : true,
+
+    userId : '',
+    childId: '',
+    videoFileSize: 0,
   },
+
+  // 入光方法
+  huluClid(){
+    var that = this;
+    if (!this.data.isSave){
+      util.post(app.globalData.src + '/gourdbaby/saveVideo/getUserSpaceftaction.action',
+        {
+          userId: wx.getStorageSync('userId')
+        }).then(res => {
+          //1.是否有内存  2.是否加上这个视频之后，内存溢出
+          if (res.data.resultData.allSaveSpace > 0) {
+            ///判断用户是否是真正要保存
+            wx.showModal({
+              // title: '提示',
+              content: ' 确定将视频保存至葫芦空间？--此视频占用空间' + this.data.videoFileSize +"MB",
+              cancelText: '我再看看',
+              confirmText: '保存',
+              confirmColor: '#FE8338',
+              success(res) {
+                if (res.confirm) {  //要保存
+                  util.post(app.globalData.src + '/gourdbaby/saveVideo/saveChildVideoftaction.action',
+                    {
+                      userId: wx.getStorageSync('userId'),
+                      videoId: that.data.vid,
+                      childId: wx.getStorageSync("childList0")[0].childId
+                    }).then(res => {
+                      if (res.data.resultCode == 200) {
+                        wx.showToast({
+                          title: '您的视频已经保存至蓝光中。',
+                          icon: 'none',
+                          duration: 1500
+                        })
+                        that.setData({
+                          isSave: 1
+                        })
+                      } else if (res.data.resultCode == 202) {
+                        wx.showModal({
+                          // title: '提示',
+                          content: res.data.resultMsg,
+                          cancelText: '我再看看',
+                          confirmText: '前去购买',
+                          confirmColor: '#FE8338',
+                          success(res) {
+                            if (res.confirm) {
+                              wx.navigateTo({
+                                url: '/pages/My/myMoney/myMoney',
+                              })
+                            } else if (res.cancel) {
+                            }
+                          }
+                        })
+                      } else {
+                        //失败
+                        wx.showToast({
+                          title: '失败',
+                          icon: 'none',
+                          duration: 1500
+                        })
+                      }
+
+                    })
+                } else if (res.cancel) {    //不保存
+                }
+              }
+            })
+           
+          } else {
+            //您还未购买葫芦存储服务
+            wx.showModal({
+              // title: '提示',
+              content: '您还未购买葫芦存储服务',
+              cancelText: '我再看看',
+              confirmText: '前去购买',
+              confirmColor: '#FE8338',
+              success(res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/My/myMoney/myMoney',
+                  })
+                } else if (res.cancel) {
+                }
+              }
+            })
+          }
+          //res.data.resultData.allSaveSpace; 全部空间
+          //res.data.resultData.allSaveSpace; 已用空间
+        })
+    } else{
+      wx.showToast({
+        title: '此视频您已经入光,无需再次入光。',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
+  getUserVType(){
+    util.post(app.globalData.src + '/gourdbaby/saveVideo/getUserSpaceftaction.action',
+      {
+        userId: wx.getStorageSync('userId')
+      }).then(res => {
+      })
+  },
+ 
+
   // 播放事件
   startPlaying() {
+    console.log(this.data)
     let vid = this.data.vid
-    let num = this.data.video.count
+    let num = this.data.videoCount
 
-    wx.request({
-      url: app.globalData.src + '/gourdbaby/gourdChildUser/updateVideoCount.action',
-      data: {
-        videoId: vid,
-        count: num + 1
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST',
-      success(res) {
-        console.log(res)
+    //请求
+    util.post(app.globalData.src + '/gourdbaby/childVideo/addChildVideoPlayNumftaction.action',{
+      videoId: vid,
+    }).then(res=>{
+      if (res.data.resultCode == 200){
+        this.setData({
+          videoCount: this.data.videoCount + 1
+        })
       }
     })
-    
   },
-
-  collectCld(vid,num,tel){
-    util.post(app.globalData.src + '/gourdbaby/video/updateCollectftaction.action', {
+// 收藏接口
+  collectCld(vid,tel){
+    
+    util.post(app.globalData.src + '/gourdbaby/video/collectVideoftaction.action', {
       videoId: vid,
-      isCollect: num
+      collectType: this.data.isSave,
+      userId: wx.getStorageSync('userId'),
+      childId: wx.getStorageSync("childList0")[0].childId
     }).then(res=>{
-      console.log()
       if (res.data.resultCode == 200){
+        this.setData({
+          collectShow: true
+        })
         wx.showToast({
           title: tel,
           icon:'success',
@@ -47,64 +162,125 @@ Page({
       }
     })
   },
-  // 收藏
-  collectIn(){
-    console.log('123')
-    let _this = this
-    let collectShow = this.data.collectShow
-    this.setData({
-      collectShow: !collectShow
-    })
-    if (this.data.collectShow){
-      console.log('收藏')
-      _this.collectCld(_this.data.vid, 1,'收藏成功')
-    }else{
-      console.log('取消收藏')
-      _this.collectCld(_this.data.vid, 0,'取消收藏')
-    }
-    console.log(this.data.collectShow)
-    console.log(this.data.vid)
-  },
-  getVideo(vid) {
-    let _this = this;
-    util.get(app.globalData.src + '/gourdbaby/gourdChildUser/findVideoCount.action', {
-      videoId: vid
-    }).then(function (res) {
-      console.log(res)
-      if (res.data.status == 200) {
-        console.log(res.data.t.isCollect)
-        if (res.data.t.isCollect){
-          _this.setData({
-            collectShow:true
-          })
-        }else{
-          _this.setData({
-            collectShow: false
-          })
-        }
-        _this.setData({
-          video: res.data.t,
+  // 取消收藏
+  collectCldTo(vid, tel) {
+    util.post(app.globalData.src + '/gourdbaby/video/cancelCollectVideoftaction.action', {
+      videoId: vid,
+      userId: wx.getStorageSync('userId'),
+      childId: wx.getStorageSync("childList0")[0].childId
+    }).then(res => {
+      if (res.data.resultCode == 200) {
+        this.setData({
+          collectShow: false
         })
-      console.log(_this.data.video)
+        wx.showToast({
+          title: tel,
+          icon: 'success',
+          duration: 1000
+        })
       }
     })
   },
+  // 收藏
+  collectIn(){
+    let tach = this
+    let collectShow = tach.data.collectShow
+    // 只要点收藏的image 先取反。然后在调用接口
+    tach.setData({
+      collectShow: !collectShow
+    })
+    if (tach.data.collectShow){
+      tach.collectCld(tach.data.vid,'收藏成功')
+    }else{
+      tach.collectCldTo(tach.data.vid,'取消收藏')
+    }
+  },
+
+  getVideo(vid) {
+    let _this = this;
+    //util.post(app.globalData.src + '/gourdbaby/childVideo/getChildVideoListftaction.action',
+    util.post(app.globalData.src + '/gourdbaby/childVideo/getChildVideoInfoftaction.action',
+    {
+      videoId: vid,
+      userId: _this.data.userId,
+      childId: _this.data.childId
+    }).then(function (res) {
+      if (res.data.resultCode == 200) {
+        if (res.data.resultData.isCollect!=1){
+          _this.setData({
+            collectShow:false,
+          })
+        }else{
+          _this.setData({
+            collectShow: true
+          })
+        }
+        _this.setData({
+          video: res.data.resultData,
+          isSave: res.data.resultData.isSave,
+          title: res.data.resultData.videoTitle,
+          videoCount: res.data.resultData.countNum,
+          //link: res.data.t.keyName,
+          videoFileSize: res.data.resultData.fileSize,
+          createTime: res.data.resultData.createTime.split(' ')[0],
+
+        })
+      } 
+    })
+  },
+ 
+  //剪切按钮事件
+  shear : function() {
+    var id = this.data.vid
+    wx.navigateTo({
+      url: "../videoShear/videoShear?data=" + id,
+      // success: function (res) {
+      //   // 通过eventChannel向被打开页面传送数据
+      //   res.eventChannel.emit('acceptDataFromOpenerPage', { data: id })
+      // }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    let that =this
-    const eventChannel = this.getOpenerEventChannel()
+    let that = this
+    
+    
+    //const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on('acceptDataFromOpenerPage', function (data) {
-      var vid = data.data;
-      console.log(vid);
+    // eventChannel.on('acceptDataFromOpenerPage', function (data) {
+    let data = option.data
+  
+    that.setData({
+      userId : wx.getStorageSync('userId'),
+      childId: wx.getStorageSync("childList0")[0].childId
+    })
+    
+
+    if (data == undefined){
+      var vidd = util.getCurrentPageUrlWithArgs().split('=')[1];
+      that.getVideo(vidd);
+      that.setData({
+        vid: vidd
+      })
+    }else{
+      var vid = data;
       that.getVideo(vid);
       that.setData({
         vid: vid
       })
-    })
-    
+    }
+
+    if (!wx.getStorageSync('userId')) {
+      that.setData({
+        collectShow: false,
+        isSave: 0,
+        isShare : false
+      })
+    } else {
+    }
   },
 
   /**
@@ -118,21 +294,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUserVType();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
@@ -153,13 +328,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
     }
+
+    let that = this;
     return {
-      title: '侧呃呃',
-      // path: '/page/user?id=123'
+      title: this.data.video.videoTitle,
+      imageUrl: this.data.video.videoImg,
+      path: '/pages/nav/sharerDetail/sharerDetail?videoId=' + this.data.vid + '&userId=' + wx.getStorageSync('userId') + '&childId=' + wx.getStorageSync("childList0")[0].childId
     }
   }
 })

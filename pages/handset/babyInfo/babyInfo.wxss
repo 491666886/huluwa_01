@@ -1,0 +1,43 @@
+
+.cot{
+  display: flex;
+  padding: 20rpx;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.item{
+  width: 330rpx;
+  position: relative;
+}
+.item image{
+  width: 100%;
+}
+.item_cot{
+  width: 200rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -100rpx;
+  top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item_cot image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 16rpx 0;
+}
+.item_cot text{
+  text-align: center;
+  width: 200rpx;
+  font-size: 28rpx;
+  color: #222222;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap;
+}
+.item_cot .xuex{
+  font-size: 32rpx;
+  color: #940303;
+}

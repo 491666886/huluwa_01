@@ -1,27 +1,79 @@
-<view>
-<view class="head">
-  <view class="video">
-    <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
-  </view>
-  <view class="broadcast_info">
-  <image class="play" src="/images/play.png"></image>
-    <text class="broadcast_num"> {{video.count}} </text>
-    <text class="time"> {{video.createTime}}</text>
-    
-     <text class="broadcast_day">4 天</text>
-     <image bindtap="collectIn" wx:if='{{!collectShow}}' class="icon" src="/images/uncollect.png"></image>
-     <image bindtap="collectIn" wx:if='{{collectShow}}' class="icon" src="/images/collect.png"></image>
-     <image class="icon"  src="/images/save.png"></image>
-     <!-- <button plain='true'open-type='share' hover-class='none' style="background-image:url('/images/share.png');" class="fx_share"></button> -->
-     
-     <button plain='true'open-type='share' hover-class='none' class="fx_share"></button>
-     <!-- <image class="icon"  src="/images/share.png"></image> -->
-  </view>
-  <view class="title">
-  <text class="text">{{video.title}}</text>
-  </view>
-  <view class="detail">
-   <text class="text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</text>
+<view class="w">
+  <!-- <view class="warning">
+    <icon type="warn" size="25rpx" color="#E98C2B" class="iconIn"></icon>
+    <text>视频在删除前会显示剩余天数，之后将永久删除</text>
+  </view> -->
+  <view class="head">
+    <view class="video">
+    <!-- controls  是否显示默认播放控件（播放/暂停按钮、播放进度、时间） -->
+      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}" controls></video>
+    </view>
+    <view class="broadcast_info">
+      <image class="play" src="/images/play.png"></image>
+      <text class="broadcast_num"> {{videoCount}} </text>
+      <text class="time"> {{createTime}}</text>
+      <!-- <text class="broadcast_day" wx-if='{{video.effectDays != -1 && video.effectDays != 0}}'>剩余时间{{video.effectDays + 1}}天</text>
+     <text class="broadcast_day" wx-if='{{video.effectDays == 0}}'>剩余时间1天</text> -->
+      <!-- 收藏的图片 -->
+      <!-- 取消收藏的图片 -->
+      <image bindtap="collectIn" wx:if='{{!collectShow}}' class="icon" src="/images/uncollect.png"></image>
+      <!-- 收藏的图片 -->
+      <image bindtap="collectIn" wx:if='{{collectShow}}' class="icon" src="/images/collect.png"></image>
+
+      <!-- 入光的icon -->
+      <image class="icon" wx:if='{{!isSave}}' bindtap="huluClid" src="/images/save.png"></image>
+      <image class="icon" wx:if='{{isSave}}' bindtap="huluClid" src="/images/videoCall/pan.png"></image>
+
+      <!-- <button plain='true'open-type='share' hover-class='none' style="background-image:url('/images/share.png');" class="fx_share"></button> -->
+
+      <button plain='true' open-type='share' hover-class='none' class="fx_share" wx-if="{{isShare}}"></button>
+
+      <!-- 剪刀 -->
+      <image class="icon" bindtap="shear" src="/images/videoCall/jq.png"></image>
+
+      <!-- <image class="icon"  src="/images/share.png"></image> -->
+    </view>
+
+    <view class="warning" wx-if='{{isSave != -1 && isSave != 1}}'>
+      <icon type="warn" size="35rpx" color="#E98C2B" class="iconIn"></icon>
+      <text>视频<text class="day">{{video.effectDays + 1}}</text>天后将被删除,您可<text class="day">剪切部分</text>或者<text class="day">永久保存</text>该视频。</text>
+    </view>
+
+    <!-- <view class="title">
+      <text class="text"></text>
+    </view> -->
+    <view class="detail">
+      <view class="ms"><text class="xiao">{{video.videoTitle}}</text></view>
+      <view class="de_text">葫芦娃专注于辅助家长记录孩子成长的每一个瞬间，帮助家长第一时间了解宝宝在园的安全及生活情况。并可以将孩子的在园的高光时刻以照片影集及视频的形式永久保存，形成宝宝成长日记。产品还提供育儿助手模块，解决家长对育儿知识的需求。</view>
+      <!-- <view class="de_text">这节课的内容简介是美术课程标准是中国义务教育阶段美术教育的标准，目的是通过课程改革，促进美术教育在我国基础教育体系。  </view> -->
    </view>
-</view>
+  </view>
+  <!-- 视频的截取版块
+  <view class="videoButtom">
+    <view class="point">
+      <image src="/images/videoCall/sho.png"></image>
+    </view>
+开始时间和结束时间
+    <view class="starT">
+      <image src="/images/videoCall/videoStar.png"></image>
+      <text class="starTime">开始时间</text>
+      <input class="styleInput" placeholder="时" bindinput="startHour"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" placeholder="分" bindinput="startMinute"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" placeholder="秒" bindinput="startSecond"/>
+    </view>
+    <view class="starT">
+    <image src="/images/videoCall/videoEnd.png"></image>
+      <text class="starTime">结束时间</text>
+      <input class="styleInput" placeholder="时" bindinput="endHour"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" placeholder="分" bindinput="endMinute"/>
+      <text class="Starmar">:</text>
+      <input class="styleInput" placeholder="秒" bindinput="endSecond"/>
+    </view>
+    <view>
+      <view class="next" bindtap="codRow">确定</view>
+    </view>
+  </view> -->
 </view>

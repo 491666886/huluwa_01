@@ -1,0 +1,49 @@
+/* pages/deal/police.wxss */
+.head{
+  width: 100fr;
+  text-align: center;
+  font-weight: bold;
+  line-height: 90rpx;
+  border-top: 0rpx;
+  border-left: 0rpx;
+  border-right: 0rpx;
+  border-bottom: 0.5rpx;
+  border-style:solid;
+  border-color: gainsboro;
+}
+.weightD{
+  font-size: 37rpx;
+  font-weight: bold;
+}
+.weight{
+  font-weight: bold;
+}
+.wMargin{
+  margin-top: 6px;
+}
+.deWigth{
+  margin: 0px auto;  
+  width: 95%;
+  font-size: 32rpx;
+}
+.margin_bom{
+  margin-bottom: 50rpx;
+}
+.indent{
+ text-indent: 1em;
+ text-align: left;
+}
+.a{
+  height: 2rpx;
+  margin-bottom: 20rpx
+}
+.we_dec{
+  font-weight: bold;
+  text-decoration: underline
+}
+.bar{
+  background-color: yellow;
+}
+.back{
+  background-color: turquoise;
+}

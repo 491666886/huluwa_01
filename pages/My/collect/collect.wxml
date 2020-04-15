@@ -1,6 +1,29 @@
 <view>
   <view class="list_cot">
     <block wx:for='{{listCot}}' wx:key='id' >
+      <!-- <view class="item"  >
+        <view class="item_lt" data-id="{{item.videoId}}" bindtap="videoId">
+          <image src="{{item.image}}"></image>
+          <text>{{item.videoDuration}}</text>
+        </view>
+        <view class="item_video_info" data-id="{{item.videoId}}" bindtap="videoId">
+          <view class="video_name">{{item.title}}</view>
+          <view class="video_in">
+            <view class="video_num">
+              <image src="/images/play.png"></image>
+              <text>{{item.count}}</text>
+            </view>
+            <text class="video_time">{{item.publishedAt}}</text>
+          </view>
+        </view>
+        <view class="item_xz">
+         <checkbox-group bindchange="checkboxChange" data-checkid = "{{item.videoId}}" value="{{item.id}},{{item.name}}">
+          <label>
+            <checkbox color='red' checked="{{checkAll}}"/>
+          </label>
+        </checkbox-group>
+        </view>
+      </view> -->
       <view class="item"  >
         <view class="item_lt" data-id="{{item.videoId}}" bindtap="videoId">
           <image src="{{item.image}}"></image>
@@ -17,7 +40,7 @@
           </view>
         </view>
         <view class="item_xz">
-         <checkbox-group bindtap="checkboxChange" data-checkid = "{{item.videoId}}" value="{{item.id}},{{item.name}}">
+         <checkbox-group bindchange="checkboxChange" data-checkid = "{{item.videoId}}" value="{{item.id}},{{item.name}}">
           <label>
             <checkbox color='red' checked="{{checkAll}}"/>
           </label>

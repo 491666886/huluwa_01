@@ -1,0 +1,103 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.icon {
+  /* padding: 25rpx 20rpx 0 0; *//* height: 0rpx; */
+  padding-right: 10px;
+  font-size: inherit;
+}
+
+.warning {
+  font-size: 26rpx;
+  color: #e98c2b;
+  width: 750rpx;
+  line-height: 70rpx;
+  background-color: #fef4e9;
+  text-align: center;
+}
+
+.moment {
+  width: 690rpx;
+  height: 465rpx;
+  margin: 30rpx;
+  background-color: white;
+  box-shadow: 0px 0px 7px 0px rgba(35, 24, 21, 0.15);
+  border-radius: 15rpx;
+}
+
+.img {
+  border-radius: 15rpx 15rpx 0 0;
+  width: 690rpx;
+  height: 349rpx;
+}
+
+.title {
+  width: 471rpx;
+  height: 36rpx;
+  font-size: 36rpx;
+  overflow: hidden;
+  font-weight: 500;
+  color: rgba(34, 34, 34, 1);
+  padding-left: 32rpx;
+  padding-top: 20rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+bottom: 73rpx;
+right: 110rpx;
+
+}
+
+.play {
+  position: relative;
+  bottom: 70rpx;
+  left: 530rpx;
+  width: 118rpx;
+  height: 118rpx;
+}
+
+.broadcast_info {
+  font-size: 20rpx;
+color: #999;
+
+position: relative;
+bottom: 60rpx;
+left: 30rpx;
+
+}
+
+.time {
+  margin-right: 30rpx;
+}
+
+.broadcast_info image {
+  width: 20rpx;
+  height: 20rpx;
+}
+.broadcast_day{
+  margin-left: 30rpx
+}
+/* 三角 */
+.triangle-topleft {
+  width: 0;
+  height: 0;
+  opacity: 0.7;
+  border-top: 90rpx solid black;
+  border-right: 90rpx solid transparent;
+}
+.sanJ image{
+  position: absolute;
+  top: 1%;
+  left: 3%;
+  width: 26%;
+  height: 14%;
+}
+.sanJ{
+  z-index: 2;
+  width: 22%;
+  height: 22%;
+  position: absolute;
+  border-radius: 15rpx 0rpx 0 0rpx;
+  overflow: hidden
+}

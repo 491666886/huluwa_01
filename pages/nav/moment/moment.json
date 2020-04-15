@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "高光时刻"
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "高光时刻",
+  "backgroundTextStyle": "dark"
 }

@@ -1,4 +1,41 @@
 <view>
-  <image src="https://hulu.ehualu.com:2443/pageList/{{page}}.jpg" ></image>
+  <view wx-if='{{page == 4}}'>
+    <view class="hd">
+      <view class="search">
+        <icon type='search' bindtap="searchVal"></icon>
+        <input placeholder='请输入关键字搜索' bindinput='watchIpt' bindconfirm="gxList" confirm-type='search'></input>
+      </view>
+    </view>
+    <view class="dynamic_cot">
+      <block wx:for='{{dynamicList}}' wx:key='id'  >
+        <view class="dynamic_item" data-id="{{item.videoId}}" bindtap="videoId" >
 
+        <!-- 三角 -->
+        <view class="sanJ"wx:if='{{item.isSave}}' >
+          <view class="triangle-topleft"></view>
+          <!-- <image class="icon" src="/images/save.png"></image> -->
+          <image class="icon" src="/images/videoCall/pan.png"></image>
+          
+        </view>
+          
+          <view class="dynamic_item_lt">
+            <image src="{{item.videoImg}}"></image>
+            <text>{{time[index]}}</text>
+          </view>
+          <view class="dynamic_item_rt">
+            <text class="video_name">{{item.videoTitle}}</text>
+            <view>
+              <!-- <view class="broadcast_sort">{{item.category}}</view> -->
+              <view class="broadcast_info">
+                <text class="time">{{arr2[index]}}</text>
+                <image src="/images/play.png"></image>
+                <text class="broadcast_num">{{item.countNum}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <image class="{{page==4?'none':''}}" wx-else src="https://hulu.ehualu.com:2443/pageList/{{page}}.jpg" ></image>
 </view>

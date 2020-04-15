@@ -1,27 +1,69 @@
-<view>
-  <view class="list">
+<import src="../../we-cropper/we-cropper.wxml"/>
+
+
+<view class="wai">
+
+  <view class='cut-img-page'wx-if="{{body}}">
+    <view class='cropper-wrapper-bg'>
+      <view style='height: 1rpx;'></view>
+      <view class="cropper-wrapper" style='margin-top: {{marTop}}px'>
+        <template is="we-cropper" data="{{...cropperOpt}}"/>
+        <view class="getCropperImage">
+          <view bindtap='cancleCropper'>取消</view><view bindtap='rotateImg'><image src='/images/rotate.png' class='rotate'></image></view><view  bindtap="getCropperImage">确定</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<!-- 
+  <view class="cropper-wrapper">
+    <template is="we-cropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="upload"
+                bindtap="uploadPhoto">
+                uploadTap
+                
+            上传图片
+        </view>
+        <view
+                class="getCropperImage"
+                bindtap="getCropperImage">
+            生成图片
+        </view>
+    </view>
+</view> -->
+
+
+  <view wx-if='{{!body}}' class="list">
     <view class="item">
       <text class="item_l">头像</text>
       <view class="item_r">
-        <image src="/images/zhy3.jpg" class="user_img"></image>
-        <image src="/images/more.png" class="more"></image>
+        <view bindtap='uploadPhoto' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>
+        <image bindtap='uploadPhoto' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{imgUrl}}" wx-else class="user_img"></image>
       </view>
     </view>
     <view class="item" bindtap="xgname">
       <text class="item_l">昵称</text>
       <view class="item_r">
-        <text>张欣源</text>
-        <image src="/images/more.png" class="more"></image>
+        <text>{{name}}</text>
       </view>
     </view>
     <view class="item" bindtap="alterPhone">
       <text class="item_l">手机号</text>
       <view class="item_r">
-        <text>17611419191</text>
-        <image src="/images/more.png" class="more"></image>
+        <text>{{phone}}</text>
+
       </view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="baby">
+      <text class="item_l">宝宝信息</text>
+    </view>
+
+
+
+    
+    <!-- <view class="item">
       <text class="item_l">幼儿园</text>
       <view class="item_r">
         <text>国际幼儿园</text>
@@ -50,6 +92,9 @@
       <view class="item_r">
         <text>红旗班</text>
       </view>
-    </view>
+    </view> -->
+
   </view>
+
+  
 </view>

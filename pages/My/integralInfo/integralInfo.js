@@ -18,20 +18,15 @@ Page({
     ],
     list2: [
       {
-        name: '士大夫但是',
-        num: 10
-      },
-      {
-        name: '大幅度',
+        name: '每天签到（登录)',
         num: 10
       }
     ],
-    list:[]
+    list:[],
+    img:''
   },
   
   bindDateChange: function (e) {
-    console.log(e.detail.value.split('-'))
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       time: e.detail.value
     })
@@ -50,11 +45,10 @@ Page({
    */
   onLoad: function (options) {
     var time = util.formatTime(new Date());
-    console.log(time.split('-')[1])
     this.setData({
-      time: time
+      time: time,
+      img: wx.getStorageSync('childImg')
     })
-    console.log(this.data.time)
     if (time.split('-')[1] % 2 == 0) {
       this.setData({
         list: this.data.list1

@@ -1,0 +1,57 @@
+
+.head{
+  width: 100fr;
+  text-align: center;
+  font-weight: bold;
+  line-height: 90rpx;
+  border-top: 0rpx;
+  border-left: 0rpx;
+  border-right: 0rpx;
+  border-bottom: 0.5rpx;
+  border-style:solid;
+  border-color: gainsboro;
+}
+.deWigth{
+  margin: 0px auto;  
+  width: 95%;
+  font-size: 32rpx;
+}
+.we_dec{
+  font-weight: bold;
+  text-decoration: underline
+}
+.weight{
+  font-weight: bold;
+}
+.weightD{
+  font-size: 37rpx;
+  font-weight: bold;
+}
+.wMargin{
+  margin-top: 6px;
+}
+.indent{
+ text-indent: 1em;
+ text-align: left;
+}
+.indentN{
+ text-indent: 2em;
+ text-align: left;
+}
+.margin_bom{
+  margin-bottom: 50rpx;
+}
+.margin_bomN{
+  margin-bottom: 30rpx;
+}
+.text01{
+  width: 100%;
+  display: block;
+  line-height: 90rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.a{
+  height: 2rpx;
+  margin-bottom: 20rpx
+}

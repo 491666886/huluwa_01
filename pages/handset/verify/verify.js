@@ -15,7 +15,6 @@ Page({
     code:''
   },
   phoneIpt(e){
-    // console.log(e.detail.value.replace(/\s+/g, ''))
     this.setData({
       phone: e.detail.value.replace(/\s+/g, '')
     })
@@ -28,14 +27,12 @@ Page({
   nexClid(){
     let code = this.data.code
     let _this = this
-    console.log(code.length)
     if (code.length == 0){
       wx.showToast({
         title: '请输入验证码',
         icon:'none'
       })
     }else{
-
       wx.request({
         url: app.globalData.src + '/gourdbaby/login/checkCode.action',
         data: {
@@ -47,13 +44,18 @@ Page({
           'content-type': 'application/x-www-form-urlencoded',
         },
         success(res) {
-          console.log(res.data.resultCode)
           if (res.data.resultCode == 200){
+
+            //添加当前用户
+            wx.setStorageSync("childList", res.data.resultData.childList)
+            wx.setStorageSync("childList0", [wx.getStorageSync('childList')[0]]);
+
             wx.setStorageSync("cardchrc", '1')
+            wx.setStorageSync("nickName", res.data.resultData.userNickName)
+            wx.setStorageSync("userId", res.data.resultData.userId)
             wx.reLaunch({
               url: '/pages/index/index'
             })
-
           }else{
             wx.showToast({
               title: '验证码有误',
@@ -69,7 +71,6 @@ Page({
     var timeNum = this.data.time
     var tineTo = this.data.tineTo
     let phone = this.data.phone
-    console.log(phone)
     if (!(/^1[345678]\d{9}$/.test(phone))) {
       if (phone.length <= 11) {
         wx.showToast({
@@ -80,7 +81,7 @@ Page({
       }
     } else {
       if (tineTo){
-
+        wx.setStorageSync('phone', phone)
         wx.request({
           url: app.globalData.src + '/gourdbaby/login/getCode.action',
           data: {
@@ -91,7 +92,6 @@ Page({
             'content-type': 'application/x-www-form-urlencoded'
           },
           success(res) {
-            console.log(res.data.split(','))
             let seinid = res.data.split(',')[1]
             _this.setData({
               seinid: seinid
@@ -120,7 +120,6 @@ Page({
               tineTo: true
             })
           }
-          // console.log(timeNum)
         }, 1000)
       }
     }

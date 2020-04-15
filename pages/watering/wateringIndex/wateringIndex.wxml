@@ -1,8 +1,8 @@
 <view>
   <view class="hd">
     <view class="search">
-      <icon type='search'></icon> 
-      <input placeholder='请输入关键字搜索' bindinput='watchIpt' confirm-type='search'></input>
+      <icon type='search' bindtap="searchVal"></icon> 
+      <input placeholder='请输入关键字搜索' bindinput='watchIpt' bindconfirm="searchVal" confirm-type='search'></input>
     </view>
   </view>
   <view class="classify">
@@ -25,13 +25,14 @@
           <view class="video_in">
             <view class="video_num">
               <image src="/images/play.png"></image>
-              <text>123</text>
+              <text>{{item.count}}</text>
             </view>
-            <text class="video_time">{{item.createTime}}</text>
+            <text class="video_time">{{arr2[index]}}</text>
           </view>
         </view>
       </view>
     </block>
+    <!-- <view class="notObj" wx-else>暂无数据</view> -->
   </view>
  <view   wx:if="{{twoList.length == 0}}"><image  class="img" src="https://hulu.ehualu.com:2443/tmpPageList/{{currentTab}}.jpg"></image></view>
 </view>

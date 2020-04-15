@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    select_all: false,
     fotCt:'全选',
     checkAll:false,
     delId:[],
@@ -29,7 +30,8 @@ Page({
       // }
     ],
     pageOt:1,
-    pageIndex: 1
+    pageIndex: 1,
+    checkstatus: [],
   },
   videoId: function (e) {
     var id = e.currentTarget.dataset.id;
@@ -51,7 +53,6 @@ Page({
       isCollect: 1,
       pageSize:3,
       }).then(function (res) {
-        console.log(res.data.resultData.list)
         _this.setData({
           listCot: res.data.resultData.list,
           pageOt: Math.ceil(res.data.resultCode / 6)
@@ -59,16 +60,18 @@ Page({
     })
   },
   checkboxChange(e){
-    console.log(e.currentTarget.dataset.checkid)
     var item = e.detail.value 
-    console.log(e)
-    
+    if (e.detail.value.length == 1){
+      var checkid = e.target.dataset.checkid;
+      this.setData({
+        ['checkstatus[' + checkid + ']']: true,
+      });
+    }
   },
   // 全选
   checkedAll: function (e) {
     var listCot = this.data.listCot
     listCot.forEach( item => {
-      console.log(item)
       item.checked = true
     })
     var arr = []
@@ -91,13 +94,10 @@ Page({
 
   // 删除
   del() {
-    console.log(this.data.delId)
     var listCot = this.data.listCot
     listCot.forEach(item => {
-      console.log(item)
       item.checked = true
     })
-    console.log(listCot)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

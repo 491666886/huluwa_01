@@ -72,6 +72,7 @@ page{
   width: 75rpx;
   height: 75rpx;
   margin-right: 20rpx;
+  border-radius: 50%;
 }
 .item_state{
   width: 134rpx;

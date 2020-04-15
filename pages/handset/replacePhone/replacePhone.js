@@ -40,7 +40,6 @@ Page({
         icon: 'none',
         duration: 1500,
         success:function(){
-          console.log('他怕自己按')
         }
       })
     }

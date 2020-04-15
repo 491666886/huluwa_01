@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "葫芦娃"
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "班级活动",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "dark"
 }

@@ -1,0 +1,32 @@
+<view>
+  <view class="list_cot">
+    <view class="list_item">
+      <block wx:for='{{list}}' wx:key='id' >
+        <movable-area>
+          <movable-view inertia damping='100' data-idx='{{index}}' out-of-bounds direction='horizontal' x='{{x}}' animation bindchange='handleMovableChange' bindtouchend="handleTouchend" bindtouchstart="handleTouchstart">
+            <view class="item" bindtap="videoClid"  data-type="{{item.collectType}}" data-id="{{item.videoId}}">
+              <view class="item_lt" data-id="{{item.videoId}}" bindtap="videoId">
+                <image src="{{item.videoImg}}"></image>
+                <text>{{time[index]}}</text>
+              </view>
+              <view class="item_video_info" data-id="{{item.videoId}}"  bindtap="videoId">
+                <view class="video_name">{{item.videoTitle}}</view>
+                <view class="video_in">
+                  <view class="video_num">
+                    <image src="/images/play.png"></image>
+                    <text>{{item.countNum}}</text>
+                  </view>
+                  <text class="video_time">{{arr2[index]}}</text>
+                </view>
+              </view>
+            </view>
+          </movable-view>
+        </movable-area>
+        <view class="adasd" bindtap="handleDelete" data-id="{{item.videoId}}">取消收藏</view>
+      </block>
+    </view>
+  </view>
+  <view class="badyCesh" wx-if='{{lietT}}'>
+    <view class="thisBady">本宝宝没有收藏视频</view>
+  </view>
+</view>

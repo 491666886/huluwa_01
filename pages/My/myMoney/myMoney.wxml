@@ -1,0 +1,70 @@
+<view class="wid">
+  <!-- <view class="head">
+    <image src="/images/money_bj.png"></image>
+    <text>升级存储空间</text>
+  </view>
+  <view class="cont">
+    <view class="list">
+    <block wx:for='{{list}}' wx:key='id'>
+      <view class="item {{idx == index ? 'active' : ''}}" data-idx='{{index}}' data-val='{{item.val}}'bindtap="monClid">{{item.val}}</view>
+    </block>
+    </view>
+    <view class="describe_top">
+      <view class="describe ">1. 购买的存储空间可用于保存高光时刻、焦点人物功能板块的精彩视频，可永久保留短视频。 </view>
+      <view class="describe"> 2. 存储空间根据视频空间大小估算，1T可实现孩子在园3年存储量。</view>
+    </view>
+    <view class="btn" bindtap="pay">微信支付</view>
+  </view> -->
+
+  <!-- ----------------------new------------------------- -->
+  <view class="meSans">
+    <view class="meHead">
+      <image src="/images/wallet/back.png"></image>
+
+      <view class="meuser">
+        <text class="sum">账户余额</text>
+        <text class="deail">消费明细</text>
+      </view>
+      <view class="meCenter">
+        <text class="meSum">￥</text>
+        <text class="meMoney">0.00</text>
+        <view class="meRecharge">
+          <view class="cz" bindtap="pay">充值</view>
+          <view class="tx" bindtap="pay">提现</view>
+        </view>
+      </view>
+      <view class="meTopButtom">
+        <text class="sum">剩余空间</text>
+        <view class="capacity">
+          <progress percent="{{userPercent}}" stroke-width="3" color="#1E90FF" />
+          <view class="meTopCapacity">
+            <view class="leftMe">0{{first}}</view>
+            <!-- <view class="centerMe">%</view> -->
+            <view wx-if="{{total}}" class="rightMe">{{userP}}/{{total}}</view>
+            <view wx-if="{{!total}}" class="rightMe">未开通</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="meBottom">
+      <view class="BoTop">
+        <image src="/images/wallet/ico.png"></image>
+        <view>购买葫芦空间</view>
+      </view>
+      <view class="list">
+        <image  src="/images/wallet/cz.png"></image>
+        <block wx:for='{{list}}' wx:key='id'>
+        <!-- {{idx == index ? 'active' : ''}} bindtap="monClid"-->
+          <view class="item {{idx == index ? 'active' : ''}}" bindtap="monClid" data-idx='{{index}}' data-val='{{item.val}}' ><text class="moneyFh">￥</text>{{item.val}}</view>
+        </block>
+      </view>
+      <view class="BoButtom">
+        <view class="BoView"><text>1.购买的存储空间可用于保存园丁板块的精彩视频，可永久保留短视频。</text></view>
+        <view><text>2.存储空间根据视频空间大小估计，1T可实现孩子在园3年的视频存储量。</text></view>
+        <view class="BoBattom" bindtap="sheng">
+          <text>升级空间</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

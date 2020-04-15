@@ -1,0 +1,51 @@
+<import src="../../we-cropper/we-cropper.wxml"/>
+  <view class='cut-img-page'wx-if="{{body}}">
+    <view class='cropper-wrapper-bg'>
+      <view style='height: 1rpx;'></view>
+      <view class="cropper-wrapper" style='margin-top: {{marTop}}px'>
+        <template is="we-cropper" data="{{...cropperOpt}}"/>
+        <view class="getCropperImage">
+          <view bindtap='cancleCropper'>取消</view><view bindtap='rotateImg'></view><view  bindtap="getCropperImage">确定</view>
+        </view>
+      </view>
+    </view>
+  </view>
+<view class="list">
+  <view class="item">
+      <text>头像</text>
+      <view bindtap="uploadPhoto">
+        <view class="imgRa" bindtap='chooseImage' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>
+        <image bindtap='chooseImage' wx-if='{{!isImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{postImg}}" class="bady_img"></image>
+      <!-- ///images/login.png -->
+        <!-- <image bindtap="chooseImage" src="{{imgUrl}}" mode="scaleToFill" class="user_img"></image> -->
+        <!-- <view bindtap='chooseImage' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>
+        <image bindtap='chooseImage' src="{{imgUrl}}" wx-else class="user_img"></image>
+        <image src="/images/more.png" class="more user_img"></image> -->
+      </view>
+  </view>
+  <view class="item">
+    <text>姓名</text>
+    <view>{{info.childName}}</view>
+  </view>
+  <view class="item">
+    <text>性别</text>
+    <view wx-if='{{info.childSex == 1}}'>男</view>
+    <view wx-if='{{info.childSex == 2}}'>女</view>
+  </view>
+  <view class="item">
+    <text>身份证号</text>
+    <view>{{info.childCard}}</view>
+  </view>
+  <view class="item">
+    <text>学校</text>
+    <view>{{info.schoolId}}</view>
+  </view>
+  <view class="item">
+    <text>年级</text>
+    <view>{{info.grade}}</view>
+  </view>
+  <view class="item">
+    <text>班级</text>
+    <view>{{info.classId}}</view>
+  </view>
+</view>

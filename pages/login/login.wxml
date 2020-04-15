@@ -4,14 +4,16 @@
     <image src="/images/login_zi.png"></image>
   </view>
   <view class="cot">
-    <!-- <button open-type='getUserInfo' bindgetuserinfo='doLogin'>微信授权登陆</button> -->
+    <!-- <button open-type='getUserInfo' bindgetuserinfo='doLogin'>微信授权登陆</button>  bindtap="phoneWx" -->
     <button open-type='getPhoneNumber' bindgetphonenumber='getPhone'>微信一键登陆</button>
-    <view bindtap="phoneClid">手机号登录</view>
+    
+    <view bindtap="phoneClid" class="phone">手机号登录</view>
+     <view bindtap="paswordLogin">账号密码登陆</view>
   </view>
   <view class="footer">
-    <switch checked type='checkbox' color='#FE8737' bindchange='switchChange'></switch>
+    <switch checked='{{switch}}' type='checkbox' color='#FE8737' bindchange='switchChange' ></switch>
     <view>
-      我已阅读并同意 <text>《用户协议》</text> 及 <text>《隐私政策》</text>
+      我已阅读并同意 <text bindtap="userDeal">《用户协议》</text> 及 <text bindtap="userPolicy">《隐私政策》</text>
     </view>
   </view>
 </view>
