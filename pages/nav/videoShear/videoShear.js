@@ -86,18 +86,20 @@ Page({
           if(vtime<60){
             _this.setData({
             // Minute: Math.floor(time/ 60),
-              second: vtime
+            endSecond: vtime+''
             })
           }else if(vtime<3600){
             _this.setData({
-              Minute: Math.floor(vtime / 60),
-              second: vtime % 60
+              endMinute: Math.floor(vtime / 60)+'',
+              
+              endSecond: vtime % 60+''
             })
+           
           } else{
             _this.setData({
-              hour:1,
-              Minute: Math.floor(vtime /60)-60,
-              second: vtime % 60
+              endHour:'1',
+              endMinute: Math.floor(vtime /60)-60+'',
+              endSecond: vtime % 60+''
             })
           }
           if (res.data.resultData.isCollect != 1) {
@@ -121,6 +123,7 @@ Page({
             createTime: res.data.resultData.createTime.split(' ')[0]
           })
         }
+        console.log('123',_this.data.endMinute)
       })
   },
   //开始时间和结束时间的获取
@@ -221,7 +224,10 @@ Page({
       return
     }
 
-    if (that.data.timeZ > uStart > 0 && that.data.timeZ > uEnd > 0 && uStart < uEnd){
+    if (that.data.timeZ > uStart > 0 && that.data.timeZ >= uEnd > 0 && uStart < uEnd){
+      that.setData({
+        disabled:true
+      })
       util.post(app.globalData.src + '/gourdbaby/videoCut/putVideoCutftaction.action',{
         videoId: that.data.vid,
         newVideoTitle: that.data.videoName,
@@ -232,9 +238,10 @@ Page({
         cutEndTime: cutEnd
       }).then(res =>{
         that.setData({
-            disabled:true
-          })
+          disabled:false
+        })
         if(res.data.resultCode == 200){
+
           wx.showModal({
             // title: '提示',
             content: '您剪辑的视频已完成,已为您保存至我的视频',
@@ -243,6 +250,9 @@ Page({
             cancelColor: '#e98c2b',
             success(res) {
               if (res.confirm) {
+                wx.navigateBack({
+                  delta: 1
+                })
               } else if (res.cancel) {
                 wx.navigateTo({
                   url: '/pages/nav/blueSave/blueSave'
@@ -268,6 +278,7 @@ Page({
         duration: 2000
       })
     }else{
+      console.log(that.data.timeZ,uStart,uEnd)
       wx.showToast({
         title: '您输入的时间有误，请再次查看。',
         icon: 'none'

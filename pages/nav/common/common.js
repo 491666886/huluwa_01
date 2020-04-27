@@ -125,7 +125,8 @@ Page({
       {
         userId: wx.getStorageSync('userId'),
         childId: wx.getStorageSync("childList0")[0].childId,
-        lastVideoId: that.data.dynamicList[that.data.dynamicList.length - 1].videoId
+        lastVideoId: that.data.dynamicList[that.data.dynamicList.length - 1].videoId,
+        searchTitle: this.data.inputVal, 
       }).then(function (res) {
         if (res.data.resultCode == 200) {
           let time = res.data.resultData.map(item => {
