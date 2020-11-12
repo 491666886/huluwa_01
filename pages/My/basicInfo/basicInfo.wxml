@@ -40,7 +40,7 @@
       <text class="item_l">头像</text>
       <view class="item_r">
         <view bindtap='uploadPhoto' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>
-        <image bindtap='uploadPhoto' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{imgUrl}}" wx-else class="user_img"></image>
+        <image bindtap='uploadPhoto' src="http://10.150.27.90:8080/gourdbaby/img/{{imgUrl}}" wx-else class="user_img"></image>
       </view>
     </view>
     <view class="item" bindtap="xgname">

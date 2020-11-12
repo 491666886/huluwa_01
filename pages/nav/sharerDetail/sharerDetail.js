@@ -55,7 +55,7 @@ Page({
 
   getVideo(videoId,userId,childId) {
      let that = this;
-     util.post('https://hulu.ehualu.com:28080/gourdbaby/childVideo/getShareChildVideoInfoftaction.action',
+     util.post('http://10.150.27.90:8080/gourdbaby/childVideo/getShareChildVideoInfoftaction.action',
       {
         videoId: videoId,
         userId: userId,

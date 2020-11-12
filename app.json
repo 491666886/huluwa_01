@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/nav/wateVdetail/wateVdetail",
     "pages/index/index",
     "pages/login/login",
     "pages/handset/babyInfo/babyInfo",
@@ -36,7 +37,7 @@
     "pages/nav/videoShear/videoShear",
     "pages/cropper/croper",
     "pages/nav/blueSave/blueSave",
-    "pages/nav/wateVdetail/wateVdetail",
+   
     "pages/nav/sharerDetail/sharerDetail"
   ],
   "window": {
@@ -68,6 +69,12 @@
         "selectedIconPath": "images/icon_bottom04_y.png"
       }
     ]
+  },
+  "plugins": {
+    "bk-video": {
+      "version": "1.0.1", 
+      "provider": "wx764c96fd8605b19f"
+    }
   },
   "usingComponents": {},
   "sitemapLocation": "sitemap.json"

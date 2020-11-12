@@ -66,14 +66,14 @@ Page({
       data = {
         userId: wx.getStorageSync('userId'),
         category: '班级活动',
-        childId: wx.getStorageSync("childList")[0].childId,
+        childId: wx.getStorageSync("childList0")[0].childId,
         searchTitle: this.data.inputVal,
       }
     } else{
       data = {
         userId: wx.getStorageSync('userId'),
         category: '班级活动',
-        childId: wx.getStorageSync("childList")[0].childId,
+        childId: wx.getStorageSync("childList0")[0].childId,
       }
     }
     util.post(app.globalData.src + '/gourdbaby/childVideo/getChildVideoListftaction.action',data).then(function (res) {

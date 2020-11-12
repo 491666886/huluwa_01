@@ -5,7 +5,9 @@
   </view> -->
   <view class="head">
     <view class="video">
-      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
+      <view class="video-box" style="width: 100rpx;height: 66rpx;position:relative">
+      <bk-video videoUrl="http://172.38.50.90:18187/static/resource/usr/video/8CC74625DB5C4841A1C803777F872513.mp4"/>
+    </view>
     </view>
     <view class="broadcast_info">
       <image class="play" src="/images/play.png"></image>

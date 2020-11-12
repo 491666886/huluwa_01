@@ -15,7 +15,7 @@
       <text>头像</text>
       <view bindtap="uploadPhoto">
         <view class="imgRa" bindtap='chooseImage' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>
-        <image bindtap='chooseImage' wx-if='{{!isImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{postImg}}" class="bady_img"></image>
+        <image bindtap='chooseImage' wx-if='{{!isImg}}' src="http://10.150.27.90:8080/gourdbaby/img/{{postImg}}" class="bady_img"></image>
       <!-- ///images/login.png -->
         <!-- <image bindtap="chooseImage" src="{{imgUrl}}" mode="scaleToFill" class="user_img"></image> -->
         <!-- <view bindtap='chooseImage' wx-if='{{isImg}}' mode="scaleToFill">选择头像</view>

@@ -3,7 +3,7 @@
     <image mode='widthFix' src="/images/babyBj.png"></image>
     <view class="item_cot">
       <text class="xuex">{{item.schoolId}}</text>
-      <image wx-if='{{item.childImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{item.childImg}}"></image>
+      <image wx-if='{{item.childImg}}' src="http://10.150.27.90:8080/gourdbaby/img/{{item.childImg}}"></image>
       <image wx-if='{{!item.childImg}}' src="/images/login.png"></image>
       <text>{{item.childName}}</text>
       <text>{{item.grade}}</text>

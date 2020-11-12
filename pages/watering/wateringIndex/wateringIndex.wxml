@@ -34,5 +34,5 @@
     </block>
     <!-- <view class="notObj" wx-else>暂无数据</view> -->
   </view>
- <view   wx:if="{{twoList.length == 0}}"><image  class="img" src="https://hulu.ehualu.com:2443/tmpPageList/{{currentTab}}.jpg"></image></view>
+ <view   wx:if="{{twoList.length == 0}}"><image  class="img" src="http://10.150.27.90/tmpPageList/{{currentTab}}.jpg"></image></view>
 </view>

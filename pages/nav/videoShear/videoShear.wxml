@@ -47,7 +47,7 @@
 
   <view class="head">
     <view class="video">
-      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
+      <video bindplay='startPlaying' src="http://10.150.27.90/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"></video>
     </view>
     <view class="broadcast_info">
       <image class="play" src="/images/play.png"></image>

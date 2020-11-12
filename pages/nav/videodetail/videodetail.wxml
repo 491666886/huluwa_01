@@ -6,7 +6,9 @@
   <view class="head">
     <view class="video">
     <!-- controls  是否显示默认播放控件（播放/暂停按钮、播放进度、时间） -->
-      <video bindplay='startPlaying' src="https://hulu.ehualu.com:2443/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}" controls></video>
+      <video bindplay='startPlaying'
+       src="http://10.150.27.90/s3/video/{{video.year}}/{{video.month}}/{{video.keyName}}"
+        controls></video>
     </view>
     <view class="broadcast_info">
       <image class="play" src="/images/play.png"></image>

@@ -48,7 +48,7 @@ Page({
             //添加当前用户
             wx.setStorageSync("childList", res.data.resultData.childList)
             wx.setStorageSync("childList0", [wx.getStorageSync('childList')[0]]);
-            wx.setStorageSync("childImg", wx.getStorageSync('childList')[0].childImg)
+            // wx.setStorageSync("childImg", wx.getStorageSync('childList')[0].childImg)
 
             //添加用户信息
             wx.setStorageSync("session_key", res.data.resultData.session_key)

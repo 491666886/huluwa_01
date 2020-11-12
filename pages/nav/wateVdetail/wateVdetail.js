@@ -237,7 +237,7 @@ Page({
 
     that.setData({
       userId: wx.getStorageSync('userId'),
-      childId: wx.getStorageSync("childList0")[0].childId
+      // childId: wx.getStorageSync("childList0")[0].childId
     })
 
 

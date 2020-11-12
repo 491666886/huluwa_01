@@ -5,11 +5,11 @@
     <view class="hd_cot">
     <!-- 妈妈的照片 -->
       <image wx:if='{{!userImg}}' src="/images/login.png" class="hd_lt_img" bindtap="userInfo"></image>
-      <image wx:if='{{userImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{userImg}}" class="hd_lt_img" bindtap="userInfo"></image>
+      <image wx:if='{{userImg}}' src="http://10.150.27.90:8080/gourdbaby/img/{{userImg}}" class="hd_lt_img" bindtap="userInfo"></image>
       <view class="sublevel">
         <!-- 孩子的照片 -->
         <image wx:if='{{!childImg}}' src="/images/login.png" class="hd_lt_img" bindtap="babyInfo"></image>
-        <image wx:if='{{childImg}}' src="https://hulu.ehualu.com:28080/gourdbaby/img/{{childImg}}" bindtap="babyInfo"></image>
+        <image wx:if='{{childImg}}' src="http://10.150.27.90:8080/gourdbaby/img/{{childImg}}" bindtap="babyInfo"></image>
       </view>
       
       <!-- Header上 -->

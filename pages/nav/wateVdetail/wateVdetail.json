@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "葫芦仔"
+  "navigationBarTitleText": "葫芦仔",
+  "usingComponents": {
+    "bk-video": "plugin://bk-video/bk-video"
+    }
 }

@@ -37,5 +37,5 @@
       </block>
     </view>
   </view>
-  <image class="{{page==4?'none':''}}" wx-else src="https://hulu.ehualu.com:2443/pageList/{{page}}.jpg" ></image>
+  <image class="{{page==4?'none':''}}" wx-else src="http://10.150.27.90/pageList/{{page}}.jpg" ></image>
 </view>
